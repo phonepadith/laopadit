@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LaoPadit - ລາວປະດິດ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans Lao', sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Noto Sans Lao', sans-serif;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .fadeInUp {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+
+    .service-box {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    .cta-button:hover {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes arrow-flow {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+        color: #ff6b6b;
+      }
+      100% {
+        opacity: 0.8;
+        transform: scale(1);
+        color: #ff458d;
+      }
+    }
+
+    @keyframes block-appear {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .automation-block {
+      animation: block-appear 1s ease-out forwards;
+      transition: transform 0.3s ease;
+    }
+
+    .automation-block:hover {
+      transform: translateY(-10px);
+    }
+
+    .arrow-animation {
+      animation: arrow-flow 2s ease-in-out infinite;
+    }
+
+    .arrow-reverse {
+      transform: scaleX(-1);
+      animation: arrow-flow 2s ease-in-out infinite;
+    }
+
+    .flow-arrow {
+      animation: flow-arrow-pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes flow-arrow-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+        color: #e91e63;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- Language Toggle -->
+  <div class="fixed top-4 right-4 z-50">
+    <button id="language-toggle" class="px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition">
+      EN/LA
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 fadeInUp">
+    <img src="img/logo.JPG" alt="Laopadit Logo" class="w-32 mb-4">
+    <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-pink-500 via-blue-400 to-orange-400 bg-clip-text text-transparent" style="background-size: 200% auto; animation: gradient-animation 5s ease infinite;">
+      LaoPadit
+    </h1>
+    <p class="text-xl md:text-2xl mt-4" data-i18n="hero.subtitle">ບໍລິການລະບົບອັດຕະໂນມັດດ້ວຍ AI ເພື່ອຄົນລາວ</p>
+    <a href="#services" class="mt-8 px-6 py-3 bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-full font-semibold hover:opacity-90 transition cta-button" data-i18n="hero.button">
+      ເລີ່ມໃຊ້ງານ
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section class="bg-white text-black py-20 px-6 fadeInUp delay-1">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-pink-500 text-center mb-12" data-i18n="about.title">ແນະນຳ LaoPadit</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <p class="text-lg mb-6 leading-relaxed" data-i18n="about.p1">LaoPadit ນຳໃຊ້ AI ເພື່ອຊ່ວຍເຮັດວຽກແບບອັດຕະໂນມັດໃຫ້ກັບຄົນລາວ ເຊັ່ນ: ຜູ້ປະກອບການ, ນັກສຶກສາ ແລະ ພະນັກງານອິດສະຫຼະ. ສຳລັບປະເທດລາວທີ່ກຳລັງກ້າວເຂົ້າສູ່ອະນາຄົດດິຈິຕອນ, LaoPadit ໄດ້ພັດທະນາ AI ອັດຕະໂນມັດເພື່ອຕອບສະໜອງຄວາມຕ້ອງການທີ່ຫຼາກຫຼາຍໃນປັດຈຸບັນ.</p>
+          <p class="text-lg mb-6 leading-relaxed" data-i18n="about.p2">ຕັ້ງແຕ່ການຈັດການເອກະສານຈົນເຖິງການເພີ່ມປະສິດທິພາບໃນການເຮັດວຽກ, LaoPadit ໃຊ້ເທັກໂນໂລຊີ AI ທີ່ທັນສະໄໝ ເພື່ອເຮັດໃຫ້ວຽກງານເຫຼົ່ານີ້ງ່າຍດາຍຂຶ້ນ ແລະ ປະຢັດເວລາໃນການເຮັດວຽກຂອງຜູ້ໃຊ້ລາວ.</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-lg">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4" data-i18n="about.features.title">ຄຸນສົມບັດຫຼັກ</h3>
+          <ul class="space-y-3 text-lg">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+              <span data-i18n="about.features.1">ເຂົ້າໃຈພາສາລາວ ແລະ ວັນນະຄະດີລາວ</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+              <span data-i18n="about.features.2">ຕອບສະໜອງໄວເປັນພາສາລາວ</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+              <span data-i18n="about.features.3">ຄວາມຖືກຕ້ອງສູງໃນການເຮັດວຽກອັດຕະໂນມັດ</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+              <span data-i18n="about.features.4">ເຊື່ອມຕໍ່ກັບລະບົບຕ່າງໆໄດ້ຢ່າງລຽບງ່າຍ</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="bg-gray-50 text-black py-20 px-6 fadeInUp delay-2">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-orange-600 mb-12" data-i18n="usecases.title">ຕົວຢ່າງການນຳໃຊ້ລະບົບອັດຕະໂນມັດໃນລາວ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="text-4xl mb-4">🏢</div>
+          <h3 class="text-xl font-semibold text-blue-600 mb-3" data-i18n="usecases.business.title">ບໍລິສັດ ແລະ ທຸລະກິດ</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="usecases.business.desc">ຈັດການເອກະສານ, ອີເມວ ແລະ ກຳນົດເວລາອັດຕະໂນມັດ ເພື່ອເພີ່ມປະສິດທິພາບຂອງທຸລະກິດຂະໜາດນ້ອຍໃນລາວ.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="text-4xl mb-4">📖</div>
+          <h3 class="text-xl font-semibold text-green-600 mb-3" data-i18n="usecases.education.title">ການສຶກສາ</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="usecases.education.desc">ຊ່ວຍນັກສຶກສາຈັດການວຽກບ້ານ ແລະ ກຽມບົດລາຍງານຢ່າງມີປະສິດທິພາບ ເພື່ອໃຫ້ມີເວລາສຸມໃສ່ການຮຽນຮູ້ຫຼາຍຂຶ້ນ.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="text-4xl mb-4">👨‍💻</div>
+          <h3 class="text-xl font-semibold text-purple-600 mb-3" data-i18n="usecases.freelancers.title">ພະນັກງານອິດສະຫຼະ (Freelancers)</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="usecases.freelancers.desc">ເຊື່ອມຕໍ່ເຈົ້າຂອງໂຄງການກັບຜູ້ທີ່ມີຄວາມສາມາດດ້ານເທັກໂນໂລຊີ ເພື່ອຊ່ວຍໃຫ້ໂຄງການຕ່າງໆໃນລາວເຂັ້ມແຂງຂຶ້ນ.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="text-4xl mb-4">🌾</div>
+          <h3 class="text-xl font-semibold text-brown-600 mb-3" data-i18n="usecases.agriculture.title">ກະສິກຳ</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="usecases.agriculture.desc">ຈັດການຂໍ້ມູນການຜະລິດກະສິກຳ ແລະ ວາງແຜນໄລຍະເວລາເກັບກ່ຽວທີ່ເໝາະສົມດ້ວຍເທັກໂນໂລຊີ AI.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="text-4xl mb-4">🏥</div>
+          <h3 class="text-xl font-semibold text-red-600 mb-3" data-i18n="usecases.healthcare.title">ສາທາລະນະສຸກ</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="usecases.healthcare.desc">ຊ່ວຍສະຖານພະຍາບານ ແລະ ໜ່ວຍງານສາທາລະນະສຸກໃນທ້ອງຖິ່ນ ໃຫ້ສາມາດບໍລິຫານຈັດການໄດ້ຢ່າງມີປະສິດທິພາບ.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="text-xl font-semibold text-indigo-600 mb-3" data-i18n="usecases.records.title">ການຈັດການຂໍ້ມູນ</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="usecases.records.desc">ຈັດການລະບົບບັນທຶກຂໍ້ມູນໃຫ້ສອດຄ່ອງກັບຂໍ້ມູນປະຫວັດສາດຂອງລາວດ້ວຍ AI.</p>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-lg text-gray-700" data-i18n="usecases.conclusion">LaoPadit ກຳລັງປ່ຽນແປງວິທີການເຮັດວຽກຂອງຄົນລາວກັບເທັກໂນໂລຊີດິຈິຕອນ ເພື່ອໃຫ້ປະເທດລາວກ້າວໄປສູ່ອະນາຄົດທີ່ເຂັ້ມແຂງທັງດ້ານເສດຖະກິດ ແລະ ສັງຄົມ.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-gradient-to-br from-pink-50 to-orange-50 py-20 px-6 text-black fadeInUp delay-2">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+      <div class="p-6 bg-white rounded-xl shadow service-box">
+        <h3 class="text-xl font-semibold text-pink-500" data-i18n="services.chat.title">ບໍລິການຕອບຄຳຖາມ</h3>
+        <p class="mt-2" data-i18n="services.chat.desc">ດ້ວຍລະບົບ AI ທີ່ເຂົ້າໃຈພາສາລາວ</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow service-box">
+        <h3 class="text-xl font-semibold text-blue-500" data-i18n="services.translate.title">ແປພາສາ</h3>
+        <p class="mt-2" data-i18n="services.translate.desc">ແປພາສາລາວ-ອັງກິດ ແລະ ອັງກິດ-ລາວ ໄດ້ຢ່າງຖືກຕ້ອງแม่นยำ</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow service-box">
+        <h3 class="text-xl font-semibold text-orange-500" data-i18n="services.write.title">ຂຽນເອກະສານ</h3>
+        <p class="mt-2" data-i18n="services.write.desc">ຊ່ວຍຂຽນ ແລະ ກວດແກ້ໄວຍະກອນພາສາລາວດ້ວຍ AI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Automation Flow Section -->
+  <section class="bg-gray-100 text-black py-20 px-6 fadeInUp delay-2">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-pink-600 mb-12" data-i18n="flow.title">ຂັ້ນຕອນການເຮັດວຽກອັດຕະໂນມັດ</h2>
+      <div class="flex flex-col items-center space-y-8">
+        <!-- Platforms Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          <div class="automation-block bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">📘</div>
+            <h3 class="text-sm md:text-lg font-semibold text-blue-600" data-i18n="flow.facebook">ເຟສບຸກ</h3>
+          </div>
+          <div class="automation-block bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="text-sm md:text-lg font-semibold text-green-600" data-i18n="flow.whatsapp">ວັອດສແອັບ</h3>
+          </div>
+          <div class="automation-block bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">✈️</div>
+            <h3 class="text-sm md:text-lg font-semibold text-cyan-600" data-i18n="flow.telegram">ເທເລແກຣມ</h3>
+          </div>
+          <div class="automation-block bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">🌐</div>
+            <h3 class="text-sm md:text-lg font-semibold text-indigo-600" data-i18n="flow.other">ອື່ນໆ</h3>
+          </div>
+        </div>
+
+        <!-- Downward Arrow -->
+        <div class="flow-arrow text-4xl text-pink-500 mb-8">↓</div>
+
+        <!-- Automation Block -->
+        <div class="automation-block bg-white p-8 rounded-lg shadow-lg text-center">
+          <div class="text-6xl mb-4">🤖</div>
+          <h3 class="text-xl md:text-2xl font-bold text-purple-600" data-i18n="flow.chatbot">ລະບົບຕອບກັບອັດຕະໂນມັດ (Chatbot)</h3>
+        </div>
+
+        <!-- Rightward Arrow (desktop) -->
+        <div class="flow-arrow md:hidden text-4xl text-pink-500 mb-8">↓</div>
+        <div class="arrow-reverse text-4xl text-pink-500 hidden md:block">↓</div>
+
+        <!-- Stock Management Block -->
+        <div class="automation-block bg-white p-8 rounded-lg shadow-lg text-center">
+          <div class="text-6xl mb-4">📊</div>
+          <h3 class="text-xl md:text-2xl font-bold text-green-600" data-i18n="flow.stock">ການຈັດການສາງສິນຄ້າ (Stock)</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Co-Founders Section -->
+  <section class="bg-white text-black py-20 px-6 fadeInUp delay-2">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-600" data-i18n="cofounders.title">ຄະນະຜູ້ຮ່ວມກໍ່ຕັ້ງ</h2>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="flex flex-col items-center">
+          <img class="w-32 h-32 rounded-full object-cover" src="img/F1.png" alt="Vanvisa Lianthikhoun">
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="cofounders.f1">ທ່ານ ນາງ ວັນວິສາ ລຽນຕິຄຸນ</h3>
+        </div>
+        <div class="flex flex-col items-center">
+          <img class="w-32 h-32 rounded-full object-cover" src="img/F2.png" alt="Chindavone Bounyavong">
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="cofounders.f2">ທ່ານ ນາງ ຈິນດາວອນ ບຸນຍະວົງ</h3>
+        </div>
+        <div class="flex flex-col items-center">
+          <img class="w-32 h-32 rounded-full object-cover" src="img/F3.png" alt="Dr. Phonpadith Phoummavong">
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="cofounders.f3">ທ່ານ ປອ. ພອນປະດິດ ພູມມະວົງ</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-black text-white py-20 px-6 fadeInUp delay-3">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-orange-400" data-i18n="testimonials.title">ສຽງຕອບຮັບຈາກຜູ້ໃຊ້ງານ</h2>
+      <p class="mt-6 italic" data-i18n="testimonials.quote">"ຂ້ອຍໃຊ້ LaoPadit ໃນການຕຽມເອກະສານວຽກ, ທັງໄວ ແລະ ຖືກຕ້ອງแม่นยำ!" – ທ່ານ ຈັນທະລີ</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-blue-400 via-pink-500 to-orange-400 py-16 text-white text-center px-6 fadeInUp">
+    <h2 class="text-3xl font-bold mb-4" data-i18n="cta.title">ເລີ່ມໃຊ້ LaoPadit ດຽວນີ້!</h2>
+    <a href="#start" class="inline-block mt-4 px-8 py-3 bg-white text-black rounded-full font-semibold hover:opacity-90 transition cta-button" data-i18n="cta.button">
+      ລົງທະບຽນຟຣີ
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-10 px-6 text-center fadeInUp">
+    <p data-i18n="footer.rights">© 2025 LaoPadit.com. ສະຫງວນລິຂະສິດ.</p>
+    <p class="mt-2">ຕິດຕໍ່: info@laopadit.com</p>
+  </footer>
+
+  <script>
+    // Translation data
+    const translations = {
+      en: {
+        "hero.subtitle": "AI-powered automation services for Lao people",
+        "hero.button": "Get Started",
+        "about.title": "About LaoPadit",
+        "about.p1": "LaoPadit uses AI to help automate tasks for Lao people such as entrepreneurs, students, and freelance workers. For Laos stepping into digital innovation, LaoPadit has brought automated AI to meet diverse contemporary needs.",
+        "about.p2": "From document management to increasing work efficiency, LaoPadit uses up-to-date AI technology to make these tasks easier and save time for Lao users.",
+        "about.features.title": "Key Features",
+        "about.features.1": "Understands Lao language and Lao literature",
+        "about.features.2": "Fast responses in Lao",
+        "about.features.3": "Reliable accuracy in automated operations",
+        "about.features.4": "Seamless integration with Lao systems",
+        "usecases.title": "Automation Use Cases in Laos",
+        "usecases.business.title": "Business & Entrepreneurs",
+        "usecases.business.desc": "Manage documents, organize emails and schedule automated reminders to improve small business efficiency in Laos",
+        "usecases.education.title": "Future Education",
+        "usecases.education.desc": "Help students organize homework and manage quizzes efficiently to have more time to focus on learning",
+        "usecases.freelancers.title": "Freelancers",
+        "usecases.freelancers.desc": "Connect employers with skilled technicians to strengthen Laos' infrastructure",
+        "usecases.agriculture.title": "Agriculture & More",
+        "usecases.agriculture.desc": "Manage agricultural records and optimal timing for harvesting with AI technology",
+        "usecases.healthcare.title": "Public Welfare",
+        "usecases.healthcare.desc": "Support hospitals and administration to increase efficiency in local areas of Laos",
+        "usecases.records.title": "Records & Systems",
+        "usecases.records.desc": "Manage record systems to align with Laos' historical content using AI",
+        "usecases.conclusion": "LaoPadit is transforming how Lao people work with digital technology to help Lao PDR move towards a stronger future from economic and social aspects.",
+        "services.chat.title": "Chat Help",
+        "services.chat.desc": "Powered by AI that understands Lao language",
+        "services.translate.title": "Translation",
+        "services.translate.desc": "Translate between Lao and English accurately",
+        "services.write.title": "Document Writing",
+        "services.write.desc": "Help write and review Lao language using AI",
+        "flow.title": "Automation Flow",
+        "flow.facebook": "Facebook",
+        "flow.whatsapp": "WhatsApp",
+        "flow.telegram": "Telegram",
+        "flow.other": "Other",
+        "flow.chatbot": "Chatbot Automation",
+        "flow.stock": "Stock Management",
+        "cofounders.title": "Co-Founders",
+        "cofounders.f1": "Mrs. Vanvisa Lianthikhoun",
+        "cofounders.f2": "Mrs. Jintawon Boonyavong",
+        "cofounders.f3": "Dr. Phonpadith Phoummavong",
+        "testimonials.title": "What users say?",
+        "testimonials.quote": "\"I use LaoPadit for preparing work documents, fast and accurate!\" – Mr. Jantalee",
+        "cta.title": "Start using LaoPadit now!",
+        "cta.button": "Register Free",
+        "footer.rights": "© 2025 LaoPadit.com. All rights reserved.",
+      },
+      lo: {
+        "hero.subtitle": "ບໍລິການລະບົບອັດຕະໂນມັດດ້ວຍ AI ເພື່ອຄົນລາວ",
+        "hero.button": "ເລີ່ມໃຊ້ງານ",
+        "about.title": "ແນະນຳ LaoPadit",
+        "about.p1": "LaoPadit ນຳໃຊ້ AI ເພື່ອຊ່ວຍເຮັດວຽກແບບອັດຕະໂນມັດໃຫ້ກັບຄົນລາວ ເຊັ່ນ: ຜູ້ປະກອບການ, ນັກສຶກສາ ແລະ ພະນັກງານອິດສະຫຼະ. ສຳລັບປະເທດລາວທີ່ກຳລັງກ້າວເຂົ້າສູ່ອະນາຄົດດິຈິຕອນ, LaoPadit ໄດ້ພັດທະນາ AI ອັດຕະໂນມັດເພື່ອຕອບສະໜອງຄວາມຕ້ອງການທີ່ຫຼາກຫຼາຍໃນປັດຈຸບັນ.",
+        "about.p2": "ຕັ້ງແຕ່ການຈັດການເອກະສານຈົນເຖິງການເພີ່ມປະສິດທິພາບໃນການເຮັດວຽກ, LaoPadit ໃຊ້ເທັກໂນໂລຊີ AI ທີ່ທັນສະໄໝ ເພື່ອເຮັດໃຫ້ວຽກງານເຫຼົ່ານີ້ງ່າຍດາຍຂຶ້ນ ແລະ ປະຢັດເວລາໃນການເຮັດວຽກຂອງຜູ້ໃຊ້ລາວ.",
+        "about.features.title": "ຄຸນສົມບັດຫຼັກ",
+        "about.features.1": "ເຂົ້າໃຈພາສາລາວ ແລະ ວັນນະຄະດີລາວ",
+        "about.features.2": "ຕອບສະໜອງໄວເປັນພາສາລາວ",
+        "about.features.3": "ຄວາມຖືກຕ້ອງສູງໃນການເຮັດວຽກອັດຕະໂນມັດ",
+        "about.features.4": "ເຊື່ອມຕໍ່ກັບລະບົບຕ່າງໆໄດ້ຢ່າງລຽບງ່າຍ",
+        "usecases.title": "ຕົວຢ່າງການນຳໃຊ້ລະບົບອັດຕະໂນມັດໃນລາວ",
+        "usecases.business.title": "ບໍລິສັດ ແລະ ທຸລະກິດ",
+        "usecases.business.desc": "ຈັດການເອກະສານ, ອີເມວ ແລະ ກຳນົດເວລາອັດຕະໂນມັດ ເພື່ອເພີ່ມປະສິດທິພາບຂອງທຸລະກິດຂະໜາດນ້ອຍໃນລາວ.",
+        "usecases.education.title": "ການສຶກສາ",
+        "usecases.education.desc": "ຊ່ວຍນັກສຶກສາຈັດການວຽກບ້ານ ແລະ ກຽມບົດລາຍງານຢ່າງມີປະສິດທິພາບ ເພື່ອໃຫ້ມີເວລາສຸມໃສ່ການຮຽນຮູ້ຫຼາຍຂຶ້ນ.",
+        "usecases.freelancers.title": "ພະນັກງານອິດສະຫຼະ (Freelancers)",
+        "usecases.freelancers.desc": "ເຊື່ອມຕໍ່ເຈົ້າຂອງໂຄງການກັບຜູ້ທີ່ມີຄວາມສາມາດດ້ານເທັກໂນໂລຊີ ເພື່ອຊ່ວຍໃຫ້ໂຄງການຕ່າງໆໃນລາວເຂັ້ມແຂງຂຶ້ນ.",
+        "usecases.agriculture.title": "ກະສິກຳ",
+        "usecases.agriculture.desc": "ຈັດການຂໍ້ມູນການຜະລິດກະສິກຳ ແລະ ວາງແຜນໄລຍະເວລາເກັບກ່ຽວທີ່ເໝາະສົມດ້ວຍເທັກໂນໂລຊີ AI.",
+        "usecases.healthcare.title": "ສາທາລະນະສຸກ",
+        "usecases.healthcare.desc": "ຊ່ວຍສະຖານພະຍາບານ ແລະ ໜ່ວຍງານສາທາລະນະສຸກໃນທ້ອງຖິ່ນ ໃຫ້ສາມາດບໍລິຫານຈັດການໄດ້ຢ່າງມີປະສິດທິພາບ.",
+        "usecases.records.title": "ການຈັດການຂໍ້ມູນ",
+        "usecases.records.desc": "ຈັດການລະບົບບັນທຶກຂໍ້ມູນໃຫ້ສອດຄ່ອງກັບຂໍ້ມູນປະຫວັດສາດຂອງລາວດ້ວຍ AI.",
+        "usecases.conclusion": "LaoPadit ກຳລັງປ່ຽນແປງວິທີການເຮັດວຽກຂອງຄົນລາວກັບເທັກໂນໂລຊີດິຈິຕອນ ເພື່ອໃຫ້ປະເທດລາວກ້າວໄປສູ່ອະນາຄົດທີ່ເຂັ້ມແຂງທັງດ້ານເສດຖະກິດ ແລະ ສັງຄົມ.",
+        "services.chat.title": "ບໍລິການຕອບຄຳຖາມ",
+        "services.chat.desc": "ດ້ວຍລະບົບ AI ທີ່ເຂົ້າໃຈພາສາລາວ",
+        "services.translate.title": "ແປພາສາ",
+        "services.translate.desc": "ແປພາສາລາວ-ອັງກິດ ແລະ ອັງກິດ-ລາວ ໄດ້ຢ່າງຖືກຕ້ອງแม่นยำ",
+        "services.write.title": "ຂຽນເອກະສານ",
+        "services.write.desc": "ຊ່ວຍຂຽນ ແລະ ກວດແກ້ໄວຍະກອນພາສາລາວດ້ວຍ AI",
+        "flow.title": "ຂັ້ນຕອນການເຮັດວຽກອັດຕະໂນມັດ",
+        "flow.facebook": "ເຟສບຸກ",
+        "flow.whatsapp": "ວັອດສແອັບ",
+        "flow.telegram": "ເທເລແກຣມ",
+        "flow.other": "ອື່ນໆ",
+        "flow.chatbot": "ລະບົບຕອບກັບອັດຕະໂນມັດ (Chatbot)",
+        "flow.stock": "ການຈັດການສາງສິນຄ້າ (Stock)",
+        "cofounders.title": "ຄະນະຜູ້ຮ່ວມກໍ່ຕັ້ງ",
+        "cofounders.f1": "ທ່ານ ນາງ ວັນວິສາ ລຽນຕິຄຸນ",
+        "cofounders.f2": "ທ່ານ ນາງ ຈິນດາວອນ ບຸນຍະວົງ",
+        "cofounders.f3": "ທ່ານ ປອ. ພອນປະດິດ ພູມມະວົງ",
+        "testimonials.title": "ສຽງຕອບຮັບຈາກຜູ້ໃຊ້ງານ",
+        "testimonials.quote": "\"ຂ້ອຍໃຊ້ LaoPadit ໃນການຕຽມເອກະສານວຽກ ໄວ ແລະຖືກຕ້ອງ ຫຼາຍ!\" – ທ່ານຈັນທະລີ",
+        "cta.title": "ເລີ່ມໃຊ້ LaoPadit ດຽວນີ້!",
+        "cta.button": "ລົງທະບຽນຟຣີ",
+        "footer.rights": "© 2025 LaoPadit.com. ທຸກສິດຖິໄດ້ຮັບການຄຸ້ມຄອງ.",
+      }
+    };
+
+    // Replace placeholders with translations
+    const translatePage = (language) => {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (translations[language] && translations[language][key]) {
+          element.textContent = translations[language][key];
+        }
+      });
+    };
+
+    // Language toggle functionality
+    let currentLanguage = "en";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Set initial language to English
+      translatePage(currentLanguage);
+      document.documentElement.lang = currentLanguage;
+
+      const toggleButton = document.getElementById("language-toggle");
+      toggleButton.textContent = "LA/EN"; // Since we're starting with EN, next toggle is to LA
+
+      toggleButton.addEventListener("click", function() {
+        currentLanguage = currentLanguage === "en" ? "lo" : "en";
+        translatePage(currentLanguage);
+        toggleButton.textContent = currentLanguage === "en" ? "LA/EN" : "EN/LA";
+        document.documentElement.lang = currentLanguage;
+      });
+    });
+  </script>
+
+</body>
+</html>
