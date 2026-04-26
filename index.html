@@ -380,16 +380,6 @@
         <span class="feature-pill lao" data-i18n="pill.4"><span class="feature-pill-dot"></span>ເຊື່ອມຕໍ່ງ່າຍ</span>
       </div>
     </div>
-
-    <!-- Scroll indicator -->
-    <div id="scroll-ind" class="absolute bottom-10 left-1/2 -translate-x-1/2" style="opacity:0">
-      <div class="flex flex-col items-center gap-2">
-        <span class="text-xs text-white/30 lao">scroll</span>
-        <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-1.5">
-          <div style="width:3px;height:8px;background:linear-gradient(to bottom,#ec4899,#8b5cf6);border-radius:3px;animation:float 2s ease-in-out infinite;"></div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Stats -->
@@ -890,8 +880,7 @@
         { targets: "#hero-sub", opacity: [0, 1], translateY: [20, 0], duration: 600, delay: 1380, easing: "easeOutExpo" },
         { targets: "#hero-sub2", opacity: [0, 1], translateY: [20, 0], duration: 600, delay: 1500, easing: "easeOutExpo" },
         { targets: "#hero-cta", opacity: [0, 1], translateY: [20, 0], duration: 600, delay: 1650, easing: "easeOutExpo" },
-        { targets: "#hero-pills", opacity: [0, 1], translateY: [16, 0], duration: 600, delay: 1800, easing: "easeOutExpo" },
-        { targets: "#scroll-ind", opacity: [0, 1], translateY: [10, 0], duration: 600, delay: 2100, easing: "easeOutExpo" }
+        { targets: "#hero-pills", opacity: [0, 1], translateY: [16, 0], duration: 600, delay: 1800, easing: "easeOutExpo" }
       ];
       tl.forEach(a => anime(a));
     }
