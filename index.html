@@ -536,45 +536,57 @@
         <p class="text-white/50 max-w-xl mx-auto reveal lao" data-i18n="prod.sub">ແອັບພລິເຄຊັນ AI ທີ່ພ້ອມນຳໃຊ້ຈິງ</p>
       </div>
 
-      <div class="card-glow p-8 reveal relative overflow-hidden cursor-pointer" onclick="window.open('https://slimfit.laopadit.com/', '_blank')">
-        <div class="absolute top-0 right-0 w-48 h-48 opacity-10" style="background:radial-gradient(circle,#5BCB25,transparent)"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative">
-          <div>
-            <div class="tag mb-4 lao" data-i18n="prod.slimfit.tag">🏆 Medical Hackathon</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <!-- SlimFit -->
+        <div class="card-glow p-8 reveal relative overflow-hidden cursor-pointer" onclick="window.open('https://slimfit.laopadit.com/', '_blank')">
+          <div class="absolute top-0 right-0 w-48 h-48 opacity-10" style="background:radial-gradient(circle,#5BCB25,transparent)"></div>
+          <div class="relative">
             <img src="img/slimfit-logo.svg" alt="SlimFit" class="h-14 mb-5">
-            <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="prod.slimfit.desc">ແອັບສຸຂະພາບ AI: ນັບແຄລໍຣີ່ດ້ວຍການສະແກນອາຫານ, ບັນທຶກການອອກກຳລັງກາຍ ແລະ ວັດອັດຕາການເຕັ້ນຫົວໃຈຜ່ານກ້ອງມືຖື (rPPG) ໂດຍບໍ່ຕ້ອງໃສ່ອຸປະກອນໃດໆ.</p>
-            <div class="flex flex-wrap gap-3 mb-6">
+            <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="prod.slimfit.desc">ແອັບສຸຂະພາບ AI: ນັບແຄລໍຣີ່ດ້ວຍການສະແກນອາຫານ, ບັນທຶກການອອກກຳລັງກາຍ ແລະ ແຜນໂພຊະນາການສ່ວນຕົວ ເພື່ອຫຼຸດໄຂມັນ ແລະ ສ້າງກ້າມເນື້ອ.</p>
+            <div class="flex flex-wrap gap-3">
               <span class="feature-pill lao" data-i18n="prod.slimfit.t1"><span class="feature-pill-dot"></span>ສະແກນອາຫານດ້ວຍ AI</span>
-              <span class="feature-pill lao" data-i18n="prod.slimfit.t2"><span class="feature-pill-dot"></span>ວັດຫົວໃຈຜ່ານກ້ອງ</span>
+              <span class="feature-pill lao" data-i18n="prod.slimfit.t2"><span class="feature-pill-dot"></span>ບັນທຶກການອອກກຳລັງກາຍ</span>
               <span class="feature-pill lao" data-i18n="prod.slimfit.t3"><span class="feature-pill-dot"></span>ແຜນສ່ວນຕົວ</span>
             </div>
-            <a href="https://slimfit.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="prod.slimfit.btn">ເປີດ SlimFit &rarr;</a>
+            <a href="https://slimfit.laopadit.com/" target="_blank" class="btn-primary lao mt-6 inline-flex" data-i18n="prod.slimfit.btn">ເປີດ SlimFit &rarr;</a>
           </div>
+        </div>
 
-          <div>
-            <p class="text-xs uppercase tracking-widest text-white/40 mb-4 lao" data-i18n="prod.flow.title">ຂັ້ນຕອນການວັດຫົວໃຈ (~30 FPS)</p>
-            <div class="flex flex-col gap-3">
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-3">
-                <span class="text-lg font-black" style="color:#5BCB25">1</span>
+        <!-- rPPG Scan - Medical Hackathon -->
+        <div class="card-glow p-8 reveal reveal-delay-1 relative overflow-hidden cursor-pointer" onclick="window.open('https://rppg-scan.laopadit.com/', '_blank')">
+          <div class="absolute top-0 right-0 w-48 h-48 opacity-10" style="background:radial-gradient(circle,#06b6d4,transparent)"></div>
+          <div class="relative">
+            <div class="tag mb-4 lao" data-i18n="prod.rppg.tag">🏆 Medical Hackathon</div>
+            <div class="service-icon mb-4" style="background:rgba(6,182,212,0.15)">❤️</div>
+            <h3 class="text-2xl font-black mb-3 g-text lao" data-i18n="prod.rppg.title">rPPG Vital Signs Scan</h3>
+            <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="prod.rppg.desc">ວັດອັດຕາການເຕັ້ນຫົວໃຈ ແລະ ອັດຕາການຫາຍໃຈຜ່ານກ້ອງມືຖື ໂດຍບໍ່ຕ້ອງແຕະຕ້ອງຮ່າງກາຍ ດ້ວຍໂມເດລ MTTS-CAN.</p>
+
+            <p class="text-xs uppercase tracking-widest text-white/40 mb-3 lao" data-i18n="prod.flow.title">ຂັ້ນຕອນການວັດ (~30 FPS)</p>
+            <div class="flex flex-col gap-2 mb-6">
+              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
+                <span class="text-base font-black" style="color:#06b6d4">1</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s1">ກວດຈັບໜ້າ ແລະ ຈັດຮຽງດ້ວຍ AAM</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-3">
-                <span class="text-lg font-black" style="color:#5BCB25">2</span>
+              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
+                <span class="text-base font-black" style="color:#06b6d4">2</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s2">ດຶງສັນຍານ RGB ຈາກຜິວໜັງ (POS)</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-3">
-                <span class="text-lg font-black" style="color:#5BCB25">3</span>
+              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
+                <span class="text-base font-black" style="color:#06b6d4">3</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s3">ລົບສັນຍານລົບກວນ ແລະ ການເຄື່ອນໄຫວ</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-3">
-                <span class="text-lg font-black" style="color:#5BCB25">4</span>
+              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
+                <span class="text-base font-black" style="color:#06b6d4">4</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s4">ກັ່ນຕອງຄວາມຖີ່ແບບປັບຕົວ</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-3">
-                <span class="text-lg font-black" style="color:#5BCB25">5</span>
+              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
+                <span class="text-base font-black" style="color:#06b6d4">5</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s5">ຄຳນວນ BPM ແລະ HRV ຈາກ IBI</span>
               </div>
             </div>
+
+            <p class="text-xs text-white/35 leading-relaxed mb-5 lao" data-i18n="prod.rppg.note">⚠ ຕົວຢ່າງເພື່ອການຄົ້ນຄວ້າ — ບໍ່ແມ່ນອຸປະກອນທາງການແພດ ແລະ ຫ້າມນຳໃຊ້ເພື່ອການວິນິດໄສ.</p>
+            <a href="https://rppg-scan.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="prod.rppg.btn">ທົດລອງສະແກນ &rarr;</a>
           </div>
         </div>
       </div>
@@ -696,13 +708,17 @@
         "prod.badge": "Products",
         "prod.title": "Our Products",
         "prod.sub": "Production-ready AI applications",
-        "prod.slimfit.tag": "🏆 Medical Hackathon",
-        "prod.slimfit.desc": "AI health app: scan meals to count calories, log workouts, and measure heart rate straight from your phone camera (rPPG) — no wearable needed.",
+        "prod.slimfit.desc": "AI health app: scan meals to count calories, log workouts, and follow personalized nutrition plans to lose fat and build muscle.",
         "prod.slimfit.t1": "AI Meal Scan",
-        "prod.slimfit.t2": "Camera Heart Rate",
+        "prod.slimfit.t2": "Workout Log",
         "prod.slimfit.t3": "Personalized Plans",
         "prod.slimfit.btn": "Open SlimFit →",
-        "prod.flow.title": "Heart rate pipeline (~30 FPS)",
+        "prod.rppg.tag": "🏆 Medical Hackathon",
+        "prod.rppg.title": "rPPG Vital Signs Scan",
+        "prod.rppg.desc": "Measure heart rate and respiration rate from your phone camera — contactless, powered by the MTTS-CAN model.",
+        "prod.rppg.note": "⚠ Research demo — not a medical device. Not for diagnosis, screening, or any clinical decision.",
+        "prod.rppg.btn": "Try the Scan →",
+        "prod.flow.title": "Measurement pipeline (~30 FPS)",
         "prod.flow.s1": "Face detection & AAM alignment",
         "prod.flow.s2": "Skin RGB signal extraction (POS)",
         "prod.flow.s3": "Motion & artifact suppression",
@@ -806,13 +822,17 @@
         "prod.badge": "ຜະລິດຕະພັນ",
         "prod.title": "ຜະລິດຕະພັນຂອງພວກເຮົາ",
         "prod.sub": "ແອັບພລິເຄຊັນ AI ທີ່ພ້ອມນຳໃຊ້ຈິງ",
-        "prod.slimfit.tag": "🏆 Medical Hackathon",
-        "prod.slimfit.desc": "ແອັບສຸຂະພາບ AI: ນັບແຄລໍຣີ່ດ້ວຍການສະແກນອາຫານ, ບັນທຶກການອອກກຳລັງກາຍ ແລະ ວັດອັດຕາການເຕັ້ນຫົວໃຈຜ່ານກ້ອງມືຖື (rPPG) ໂດຍບໍ່ຕ້ອງໃສ່ອຸປະກອນໃດໆ.",
+        "prod.slimfit.desc": "ແອັບສຸຂະພາບ AI: ນັບແຄລໍຣີ່ດ້ວຍການສະແກນອາຫານ, ບັນທຶກການອອກກຳລັງກາຍ ແລະ ແຜນໂພຊະນາການສ່ວນຕົວ ເພື່ອຫຼຸດໄຂມັນ ແລະ ສ້າງກ້າມເນື້ອ.",
         "prod.slimfit.t1": "ສະແກນອາຫານດ້ວຍ AI",
-        "prod.slimfit.t2": "ວັດຫົວໃຈຜ່ານກ້ອງ",
+        "prod.slimfit.t2": "ບັນທຶກການອອກກຳລັງກາຍ",
         "prod.slimfit.t3": "ແຜນສ່ວນຕົວ",
         "prod.slimfit.btn": "ເປີດ SlimFit →",
-        "prod.flow.title": "ຂັ້ນຕອນການວັດຫົວໃຈ (~30 FPS)",
+        "prod.rppg.tag": "🏆 Medical Hackathon",
+        "prod.rppg.title": "rPPG Vital Signs Scan",
+        "prod.rppg.desc": "ວັດອັດຕາການເຕັ້ນຫົວໃຈ ແລະ ອັດຕາການຫາຍໃຈຜ່ານກ້ອງມືຖື ໂດຍບໍ່ຕ້ອງແຕະຕ້ອງຮ່າງກາຍ ດ້ວຍໂມເດລ MTTS-CAN.",
+        "prod.rppg.note": "⚠ ຕົວຢ່າງເພື່ອການຄົ້ນຄວ້າ — ບໍ່ແມ່ນອຸປະກອນທາງການແພດ ແລະ ຫ້າມນຳໃຊ້ເພື່ອການວິນິດໄສ.",
+        "prod.rppg.btn": "ທົດລອງສະແກນ →",
+        "prod.flow.title": "ຂັ້ນຕອນການວັດ (~30 FPS)",
         "prod.flow.s1": "ກວດຈັບໜ້າ ແລະ ຈັດຮຽງດ້ວຍ AAM",
         "prod.flow.s2": "ດຶງສັນຍານ RGB ຈາກຜິວໜັງ (POS)",
         "prod.flow.s3": "ລົບສັນຍານລົບກວນ ແລະ ການເຄື່ອນໄຫວ",
