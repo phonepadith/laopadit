@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LaoPadit - ລາວປະດິດ | AI for Lao People</title>
   <meta name="description" content="LaoPadit - AI-powered automation services for Lao people. OCR, Chat Support, AI Consulting, LLM Development.">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans+Lao:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <style>
@@ -22,8 +22,8 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', 'Noto Sans Lao', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; }
-    .lao { font-family: 'Noto Sans Lao', 'Inter', sans-serif; }
+    body { font-family: 'Noto Sans Lao', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; }
+    .lao { font-family: 'Noto Sans Lao', sans-serif; }
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
@@ -342,14 +342,14 @@
       pointer-events: none;
     }
 
-    /* Display type — Latin renders Instrument Serif, Lao falls through to Noto Sans Lao */
+    /* Display type */
     .display, .lao.display {
-      font-family: 'Instrument Serif', 'Noto Sans Lao', serif;
-      font-weight: 400;
+      font-family: 'Noto Sans Lao', sans-serif;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      line-height: 1.08;
+      line-height: 1.15;
     }
-    .display em { font-style: italic; }
+    .display em { font-style: normal; }
 
     /* Section eyebrow label */
     .eyebrow {
@@ -499,7 +499,7 @@
       <div class="py-16 md:py-24">
         <p id="hero-kicker" class="text-xs md:text-sm text-white/80 uppercase tracking-tight mb-5 lao" data-i18n="hero.kicker" style="opacity:0">AI ອັດຕະໂນມັດ ສຳລັບຄົນລາວ</p>
 
-        <h1 id="hero-title" class="display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tighter" style="opacity:0;line-height:0.85">
+        <h1 id="hero-title" class="display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tighter" style="opacity:0;line-height:1.02">
           <span class="block text-white font-medium lao" data-i18n="hero.line1">ອັດຕະໂນມັດດ້ວຍ</span>
           <span class="block shiny-text">LaoPadit.</span>
         </h1>
