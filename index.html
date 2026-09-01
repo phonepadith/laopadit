@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LaoPadit - ລາວປະດິດ | AI for Lao People</title>
   <meta name="description" content="LaoPadit - AI-powered automation services for Lao people. OCR, Chat Support, AI Consulting, LLM Development.">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans+Lao:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <style>
@@ -64,26 +64,38 @@
     /* Gradient border card */
     .card-glow {
       position: relative;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(16px);
-      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.01);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+      border-radius: 24px;
       transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
     }
     .card-glow::before {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 20px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(236,72,153,0.3), rgba(139,92,246,0.3), rgba(249,115,22,0.1));
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.45) 0%,
+        rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.15) 80%,
+        rgba(255,255,255,0.45) 100%
+      );
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
-      opacity: 0.6;
-      transition: opacity 0.35s;
+      pointer-events: none;
     }
-    .card-glow:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(139,92,246,0.2); }
-    .card-glow:hover::before { opacity: 1; }
+    .card-glow:hover { transform: translateY(-8px); box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 24px 48px rgba(139,92,246,0.18); }
 
     /* Buttons */
     .btn-primary {
@@ -296,6 +308,87 @@
       background: linear-gradient(135deg, var(--pink), var(--purple));
       flex-shrink: 0;
     }
+
+    /* ===================== Liquid glass ===================== */
+    .liquid-glass {
+      background: rgba(255,255,255,0.01);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.45) 0%,
+        rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.15) 80%,
+        rgba(255,255,255,0.45) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Display type — Latin renders Instrument Serif, Lao falls through to Noto Sans Lao */
+    .display, .lao.display {
+      font-family: 'Instrument Serif', 'Noto Sans Lao', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+    .display em { font-style: italic; }
+
+    /* Section eyebrow label */
+    .eyebrow {
+      display: inline-block;
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Hairline rule */
+    .rule { width: 100%; height: 1px; background: rgba(255,255,255,0.1); }
+
+    /* Glass button */
+    .btn-glass {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 100px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .btn-glass:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+    /* Circular glass icon button */
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      color: rgba(255,255,255,0.8);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .icon-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
   </style>
 </head>
 <body>
@@ -309,31 +402,33 @@
   <!-- Particles -->
   <div id="particles"></div>
 
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 nav-glass transition-all duration-300" style="opacity:0">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-3">
-        <img src="img/logo.JPG" alt="Logo" class="w-9 h-9 rounded-full">
-        <span class="text-lg font-bold g-text">LaoPadit</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#about" class="nav-link lao" data-i18n="nav.about">ກ່ຽວກັບ</a>
-        <a href="#services" class="nav-link lao" data-i18n="nav.services">ບໍລິການ</a>
-        <a href="#products" class="nav-link lao" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
-        <a href="#usecases" class="nav-link lao" data-i18n="nav.usecases">ການນຳໃຊ້</a>
-        <a href="#contact" class="nav-link lao" data-i18n="nav.contact">ຕິດຕໍ່</a>
+  <!-- Nav -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 px-4 sm:px-6 py-5 transition-all duration-300" style="opacity:0">
+    <div class="liquid-glass rounded-full max-w-5xl mx-auto px-5 sm:px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center">
+        <a href="#" class="flex items-center gap-3">
+          <img src="img/logo.JPG" alt="Logo" class="w-8 h-8 rounded-full">
+          <span class="text-lg text-white display">LaoPadit</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 ml-9">
+          <a href="#about" class="nav-link lao" data-i18n="nav.about">ກ່ຽວກັບ</a>
+          <a href="#services" class="nav-link lao" data-i18n="nav.services">ບໍລິການ</a>
+          <a href="#products" class="nav-link lao" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
+          <a href="#usecases" class="nav-link lao" data-i18n="nav.usecases">ການນຳໃຊ້</a>
+          <a href="#contact" class="nav-link lao" data-i18n="nav.contact">ຕິດຕໍ່</a>
+        </div>
       </div>
-      <div class="flex items-center gap-3">
-        <button id="language-toggle" class="px-3 py-1.5 glass rounded-full text-xs font-medium text-white/70 hover:text-white hover:bg-white/10 transition cursor-pointer">EN / ລາວ</button>
-        <a href="https://super-ocr.laopadit.com/" target="_blank" class="hidden md:inline-flex btn-primary py-2 px-5 text-sm lao" data-i18n="nav.cta">ທົດລອງຟຣີ</a>
-        <button id="mobile-toggle" class="md:hidden p-2 text-white/70 hover:text-white">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="language-toggle" class="text-white/70 hover:text-white text-xs font-medium px-2 transition cursor-pointer">EN / ລາວ</button>
+        <a href="https://super-ocr.laopadit.com/" target="_blank" class="hidden md:inline-flex liquid-glass btn-glass lao !py-2 !px-6 !text-sm" data-i18n="nav.cta">ທົດລອງຟຣີ</a>
+        <button id="mobile-toggle" class="md:hidden p-1.5 text-white/70 hover:text-white">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
     </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden glass border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
+    <div id="mobile-menu" class="liquid-glass rounded-3xl max-w-5xl mx-auto mt-3 px-6 py-5 md:hidden">
+      <div class="flex flex-col gap-4">
         <a href="#about" class="nav-link lao text-base" data-i18n="nav.about">ກ່ຽວກັບ</a>
         <a href="#services" class="nav-link lao text-base" data-i18n="nav.services">ບໍລິການ</a>
         <a href="#products" class="nav-link lao text-base" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
@@ -345,36 +440,31 @@
   </nav>
 
   <!-- Hero -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 overflow-hidden">
-    <!-- Mesh gradient blobs -->
+  <section class="relative min-h-screen flex flex-col overflow-hidden px-6 pt-32">
     <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#8b5cf6,transparent);top:-100px;right:-200px;"></div>
     <div class="mesh-bg" style="width:500px;height:500px;background:radial-gradient(circle,#ec4899,transparent);bottom:-50px;left:-150px;"></div>
     <div class="mesh-bg" style="width:400px;height:400px;background:radial-gradient(circle,#06b6d4,transparent);top:50%;left:60%;opacity:0.1;"></div>
 
-    <div class="relative z-10 max-w-4xl mx-auto">
-      <!-- Badge -->
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center max-w-4xl mx-auto py-12">
       <div id="hero-badge" class="inline-flex mb-8" style="opacity:0">
         <span class="badge lao" data-i18n="hero.badge">🇱🇦 &nbsp;AI ເພື່ອຄົນລາວ</span>
       </div>
 
-      <!-- Logo + glow -->
       <div id="hero-logo" class="relative inline-block mb-8" style="opacity:0">
         <div class="pulse-ring"></div>
-        <img src="img/logo.JPG" alt="LaoPadit" class="w-28 h-28 rounded-full float" style="box-shadow:0 0 40px rgba(236,72,153,0.4),0 0 80px rgba(139,92,246,0.2);">
+        <img src="img/logo.JPG" alt="LaoPadit" class="w-24 h-24 rounded-full float" style="box-shadow:0 0 40px rgba(236,72,153,0.4),0 0 80px rgba(139,92,246,0.2);">
       </div>
 
-      <h1 id="hero-title" class="text-6xl sm:text-7xl md:text-8xl font-black tracking-tight mb-6 g-text" style="opacity:0;line-height:1.05">LaoPadit</h1>
+      <h1 id="hero-title" class="display text-7xl md:text-8xl lg:text-9xl text-white mb-6" style="opacity:0">Lao<em class="g-text">Padit</em></h1>
 
-      <p id="hero-sub" class="text-xl md:text-2xl text-white/60 mb-4 lao font-light" data-i18n="hero.subtitle" style="opacity:0">ບໍລິການ AI ອັດຕະໂນມັດ ເພື່ອຄົນລາວ</p>
-      <p id="hero-sub2" class="text-base md:text-lg text-white/40 mb-10 max-w-2xl mx-auto lao" data-i18n="hero.subtitle2" style="opacity:0">ຊ່ວຍຜູ້ປະກອບການ, ນັກສຶກສາ ແລະ ອົງກອນ ເພີ່ມປະສິດທິພາບດ້ວຍ AI ຂັ້ນສູງ</p>
+      <p id="hero-sub" class="text-xl md:text-2xl text-white/70 mb-4 lao font-light" data-i18n="hero.subtitle" style="opacity:0">ບໍລິການ AI ອັດຕະໂນມັດ ເພື່ອຄົນລາວ</p>
+      <p id="hero-sub2" class="text-sm md:text-base text-white/45 mb-10 max-w-xl mx-auto leading-relaxed lao" data-i18n="hero.subtitle2" style="opacity:0">ຊ່ວຍຜູ້ປະກອບການ, ນັກສຶກສາ ແລະ ອົງກອນ ເພີ່ມປະສິດທິພາບດ້ວຍ AI ຂັ້ນສູງ</p>
 
-      <!-- CTA row -->
-      <div id="hero-cta" class="flex flex-col sm:flex-row gap-4 justify-center mb-16" style="opacity:0">
+      <div id="hero-cta" class="flex flex-col sm:flex-row gap-4 justify-center mb-14" style="opacity:0">
         <a href="https://super-ocr.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="hero.btn1">ທົດລອງ OCR ຟຣີ &rarr;</a>
-        <a href="#services" class="btn-outline lao" data-i18n="hero.btn2">ເບິ່ງບໍລິການ</a>
+        <a href="#services" class="liquid-glass btn-glass lao" data-i18n="hero.btn2">ເບິ່ງບໍລິການ</a>
       </div>
 
-      <!-- Feature pills -->
       <div id="hero-pills" class="flex flex-wrap justify-center gap-3" style="opacity:0">
         <span class="feature-pill lao" data-i18n="pill.1"><span class="feature-pill-dot"></span>99% ຄວາມຖືກຕ້ອງ</span>
         <span class="feature-pill lao" data-i18n="pill.2"><span class="feature-pill-dot"></span>ພາສາລາວ</span>
@@ -382,26 +472,39 @@
         <span class="feature-pill lao" data-i18n="pill.4"><span class="feature-pill-dot"></span>ເຊື່ອມຕໍ່ງ່າຍ</span>
       </div>
     </div>
+
+    <!-- Social row -->
+    <div class="relative z-10 flex justify-center gap-4 pb-12">
+      <a href="mailto:info@laopadit.com" aria-label="Email" class="liquid-glass icon-btn rounded-full p-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a href="https://super-ocr.laopadit.com/" target="_blank" aria-label="LaoPadit OCR" class="liquid-glass icon-btn rounded-full p-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+      </a>
+      <a href="https://laopadit.com" aria-label="Website" class="liquid-glass icon-btn rounded-full p-4">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </a>
+    </div>
   </section>
 
   <!-- Stats -->
-  <section class="py-20 px-6 relative">
+  <section class="py-16 md:py-20 px-6 relative">
     <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="card-glow p-6 text-center reveal">
-          <div class="text-4xl font-black g-text stat-num mb-1">99%</div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="liquid-glass rounded-3xl p-6 text-center reveal">
+          <div class="display text-5xl g-text stat-num mb-2">99%</div>
           <div class="text-sm text-white/50 lao" data-i18n="stat.1">ຄວາມຖືກຕ້ອງ OCR</div>
         </div>
-        <div class="card-glow p-6 text-center reveal reveal-delay-1">
-          <div class="text-4xl font-black g-text stat-num mb-1">24/7</div>
+        <div class="liquid-glass rounded-3xl p-6 text-center reveal reveal-delay-1">
+          <div class="display text-5xl g-text stat-num mb-2">24/7</div>
           <div class="text-sm text-white/50 lao" data-i18n="stat.2">ພ້ອມໃຫ້ບໍລິການ</div>
         </div>
-        <div class="card-glow p-6 text-center reveal reveal-delay-2">
-          <div class="text-4xl font-black g-text stat-num mb-1">4+</div>
+        <div class="liquid-glass rounded-3xl p-6 text-center reveal reveal-delay-2">
+          <div class="display text-5xl g-text stat-num mb-2">4+</div>
           <div class="text-sm text-white/50 lao" data-i18n="stat.3">ບໍລິການ AI</div>
         </div>
-        <div class="card-glow p-6 text-center reveal reveal-delay-3">
-          <div class="text-4xl font-black g-text stat-num mb-1">🇱🇦</div>
+        <div class="liquid-glass rounded-3xl p-6 text-center reveal reveal-delay-3">
+          <div class="text-4xl mb-2">🇱🇦</div>
           <div class="text-sm text-white/50 lao" data-i18n="stat.4">ສ້າງໂດຍຄົນລາວ</div>
         </div>
       </div>
@@ -409,20 +512,16 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="py-28 px-6 relative overflow-hidden">
+  <section id="about" class="py-28 md:py-36 px-6 relative overflow-hidden">
     <div class="mesh-bg" style="width:700px;height:700px;background:radial-gradient(circle,#8b5cf6,transparent);top:50%;left:-300px;transform:translateY(-50%);"></div>
     <div class="max-w-7xl mx-auto relative">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Text -->
         <div>
-          <div class="badge mb-5 reveal lao" data-i18n="about.badge">ກ່ຽວກັບພວກເຮົາ</div>
-          <h2 class="text-4xl md:text-5xl font-black mb-6 reveal lao" style="line-height:1.15" data-i18n="about.title">
-            AI ທີ່ເຂົ້າໃຈ<br><span class="g-text">ພາສາລາວ</span> ຢ່າງແທ້ຈິງ
-          </h2>
-          <div class="divider mb-6 reveal"></div>
-          <p class="text-white/60 leading-relaxed mb-6 reveal lao" data-i18n="about.p1">LaoPadit (ລາວປະດິດ) ແມ່ນຜູ້ບຸກເບີກດ້ານ AI ທີ່ສຸມໃສ່ການເສີມສ້າງຄວາມເຂັ້ມແຂງໃຫ້ປະຊາຊົນລາວ ໃນຍຸກດິຈິຕອລ. ລະບົບ AI ຂອງພວກເຮົາໄດ້ຖືກອອກແບບມາເປັນພິເສດເພື່ອເຂົ້າໃຈ ແລະ ປະມວນຜົນພາສາລາວຢ່າງເລິກເຊິ່ງ.</p>
+          <div class="eyebrow mb-6 reveal lao" data-i18n="about.badge">ກ່ຽວກັບພວກເຮົາ</div>
+          <h2 class="display text-4xl md:text-6xl text-white mb-8 reveal lao" data-i18n="about.title">AI ທີ່ເຂົ້າໃຈ<br><em class="g-text">ພາສາລາວ</em> ຢ່າງແທ້ຈິງ</h2>
+          <div class="rule mb-8 reveal"></div>
+          <p class="text-white/60 leading-relaxed mb-5 reveal lao" data-i18n="about.p1">LaoPadit (ລາວປະດິດ) ແມ່ນຜູ້ບຸກເບີກດ້ານ AI ທີ່ສຸມໃສ່ການເສີມສ້າງຄວາມເຂັ້ມແຂງໃຫ້ປະຊາຊົນລາວ ໃນຍຸກດິຈິຕອລ. ລະບົບ AI ຂອງພວກເຮົາໄດ້ຖືກອອກແບບມາເປັນພິເສດເພື່ອເຂົ້າໃຈ ແລະ ປະມວນຜົນພາສາລາວຢ່າງເລິກເຊິ່ງ.</p>
           <p class="text-white/60 leading-relaxed mb-8 reveal lao" data-i18n="about.p2">ພາລະກິດຂອງພວກເຮົາ: ຊ່ວຍຜູ້ປະກອບການ, ນັກຮຽນ ແລະ ພະນັກງານອິດສະຫຼະ ນໍາໃຊ້ AI ເພື່ອເພີ່ມປະສິດທິພາບ, ປະຢັດເວລາ ແລະ ເຮັດໃຫ້ວຽກທີ່ສັບສົນງ່າຍຂຶ້ນ.</p>
-          <!-- Feature pills grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 reveal">
             <div class="feature-pill lao" data-i18n="about.f1"><span class="feature-pill-dot"></span>ຄວາມຊໍານານພາສາລາວ</div>
             <div class="feature-pill lao" data-i18n="about.f2"><span class="feature-pill-dot"></span>ຕອບສະໜອງທີ່ວ່ອງໄວ</div>
@@ -431,22 +530,21 @@
           </div>
         </div>
 
-        <!-- Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div class="card-glow p-6 reveal reveal-delay-1">
+          <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-1">
             <div class="service-icon mb-4" style="background:rgba(236,72,153,0.12)">🇱🇦</div>
-            <h3 class="font-bold mb-2 lao" data-i18n="about.card1.t">ສຳລັບທຸລະກິດ</h3>
-            <p class="text-sm text-white/50 lao" data-i18n="about.card1.d">ອັດຕະໂນມັດເອກະສານ, ອີເມລ, ການນັດໝາຍ ແລະ ສິນຄ້າຄົງຄັງ</p>
+            <h3 class="text-lg text-white mb-2 lao" data-i18n="about.card1.t">ສຳລັບທຸລະກິດ</h3>
+            <p class="text-sm text-white/50 leading-relaxed lao" data-i18n="about.card1.d">ອັດຕະໂນມັດເອກະສານ, ອີເມລ, ການນັດໝາຍ ແລະ ສິນຄ້າຄົງຄັງ</p>
           </div>
-          <div class="card-glow p-6 reveal reveal-delay-2">
+          <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-2">
             <div class="service-icon mb-4" style="background:rgba(139,92,246,0.12)">📚</div>
-            <h3 class="font-bold mb-2 lao" data-i18n="about.card2.t">ສຳລັບການສຶກສາ</h3>
-            <p class="text-sm text-white/50 lao" data-i18n="about.card2.d">ຊ່ວຍນັກຮຽນ ແລະ ຄູ ຈັດການວຽກ, ກຽມບົດ, ທົດສອບ</p>
+            <h3 class="text-lg text-white mb-2 lao" data-i18n="about.card2.t">ສຳລັບການສຶກສາ</h3>
+            <p class="text-sm text-white/50 leading-relaxed lao" data-i18n="about.card2.d">ຊ່ວຍນັກຮຽນ ແລະ ຄູ ຈັດການວຽກ, ກຽມບົດ, ທົດສອບ</p>
           </div>
-          <div class="card-glow p-6 reveal reveal-delay-3 sm:col-span-2">
+          <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-3 sm:col-span-2">
             <div class="service-icon mb-4" style="background:rgba(6,182,212,0.12)">✨</div>
-            <h3 class="font-bold mb-2 lao" data-i18n="about.card3.t">ສຳລັບ Freelancer</h3>
-            <p class="text-sm text-white/50 lao" data-i18n="about.card3.d">ເຊື່ອມຕໍ່ຜູ້ມີທັກສະ AI ກັບເຈົ້າຂອງໂຄງການ. ຄຸ້ມຄອງວຽກ ແລະ ພັດທະນາທັກສະ AI ຢ່າງມີປະສິດທິພາບ</p>
+            <h3 class="text-lg text-white mb-2 lao" data-i18n="about.card3.t">ສຳລັບ Freelancer</h3>
+            <p class="text-sm text-white/50 leading-relaxed lao" data-i18n="about.card3.d">ເຊື່ອມຕໍ່ຜູ້ມີທັກສະ AI ກັບເຈົ້າຂອງໂຄງການ. ຄຸ້ມຄອງວຽກ ແລະ ພັດທະນາທັກສະ AI ຢ່າງມີປະສິດທິພາບ</p>
           </div>
         </div>
       </div>
@@ -454,40 +552,45 @@
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-28 px-6 relative">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="badge mb-5 mx-auto lao reveal" data-i18n="services.badge">ບໍລິການ</div>
-        <h2 class="text-4xl md:text-5xl font-black mb-4 g-text reveal lao" data-i18n="services.title">ບໍລິການຂອງພວກເຮົາ</h2>
-        <p class="text-white/50 max-w-xl mx-auto reveal lao" data-i18n="services.sub">ເທັກໂນໂລຊີ AI ຂັ້ນສູງ ສຳລັບທຸກຄວາມຕ້ອງການ</p>
+  <section id="services" class="py-28 md:py-36 px-6 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto relative">
+      <div class="flex items-end justify-between gap-6 mb-14 reveal">
+        <h2 class="display text-4xl md:text-6xl text-white lao" data-i18n="services.title">ບໍລິການ<em class="g-text">ຂອງພວກເຮົາ</em></h2>
+        <span class="eyebrow hidden md:inline-block pb-2 lao" data-i18n="services.badge">ບໍລິການ</span>
       </div>
+      <div class="rule mb-12 reveal"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- OCR - featured -->
-        <div class="card-glow p-8 md:row-span-1 reveal relative overflow-hidden cursor-pointer" onclick="window.open('https://super-ocr.laopadit.com/', '_blank')">
+        <div class="liquid-glass rounded-3xl p-8 reveal cursor-pointer group" onclick="window.open('https://super-ocr.laopadit.com/', '_blank')">
           <div class="absolute top-0 right-0 w-48 h-48 opacity-5" style="background:radial-gradient(circle,#ec4899,transparent)"></div>
-          <div class="tag mb-4 lao" data-i18n="services.featured">★ ຈຸດເດັ່ນ</div>
-          <div class="service-icon" style="background:rgba(236,72,153,0.15)">📄</div>
-          <h3 class="text-2xl font-black mb-3 g-text lao" data-i18n="services.ocr.title">LaoPadit OCR</h3>
-          <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="services.ocr.desc">ແປງຮູບພາບ ແລະ PDF ເປັນຂໍ້ຄວາມພາສາລາວ ດ້ວຍ AI ທີ່ມີຄວາມຖືກຕ້ອງສູງເຖິງ 99%. ຮອງຮັບໄຟລ໌ຂະໜາດໃຫຍ່ ເຖິງ 10MB ແລະ PDF ສູງສຸດ 20 ໜ້າ.</p>
-          <div class="flex flex-wrap gap-3 mb-6">
-            <span class="feature-pill lao" data-i18n="services.ocr.t1"><span class="feature-pill-dot"></span>99% ຄວາມຖືກຕ້ອງ</span>
-            <span class="feature-pill lao" data-i18n="services.ocr.t2"><span class="feature-pill-dot"></span>PDF & ຮູບພາບ</span>
-            <span class="feature-pill lao" data-i18n="services.ocr.t3"><span class="feature-pill-dot"></span>10MB</span>
+          <div class="relative">
+            <div class="flex items-start justify-between mb-5">
+              <div class="service-icon !mb-0" style="background:rgba(236,72,153,0.15)">📄</div>
+              <span class="liquid-glass icon-btn rounded-full p-2.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </span>
+            </div>
+            <div class="eyebrow mb-3 lao" data-i18n="services.featured">★ ຈຸດເດັ່ນ</div>
+            <h3 class="display text-3xl mb-3 g-text lao" data-i18n="services.ocr.title">LaoPadit OCR</h3>
+            <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="services.ocr.desc">ແປງຮູບພາບ ແລະ PDF ເປັນຂໍ້ຄວາມພາສາລາວ ດ້ວຍ AI ທີ່ມີຄວາມຖືກຕ້ອງສູງເຖິງ 99%. ຮອງຮັບໄຟລ໌ຂະໜາດໃຫຍ່ ເຖິງ 10MB ແລະ PDF ສູງສຸດ 20 ໜ້າ.</p>
+            <div class="flex flex-wrap gap-3 mb-7">
+              <span class="feature-pill lao" data-i18n="services.ocr.t1"><span class="feature-pill-dot"></span>99% ຄວາມຖືກຕ້ອງ</span>
+              <span class="feature-pill lao" data-i18n="services.ocr.t2"><span class="feature-pill-dot"></span>PDF & ຮູບພາບ</span>
+              <span class="feature-pill lao" data-i18n="services.ocr.t3"><span class="feature-pill-dot"></span>10MB</span>
+            </div>
+            <a href="https://super-ocr.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="services.ocr.btn">ທົດລອງຟຣີ &rarr;</a>
           </div>
-          <a href="https://super-ocr.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="services.ocr.btn">ທົດລອງຟຣີ &rarr;</a>
         </div>
 
-        <!-- Right column -->
         <div class="flex flex-col gap-6">
-          <!-- Chat -->
-          <div class="card-glow p-7 reveal reveal-delay-1 relative overflow-hidden">
+          <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-1">
             <div class="flex items-start gap-5">
-              <div class="service-icon flex-shrink-0" style="background:rgba(139,92,246,0.15)">💬</div>
+              <div class="service-icon flex-shrink-0 !mb-0" style="background:rgba(139,92,246,0.15)">💬</div>
               <div>
-                <h3 class="text-xl font-bold mb-2 lao" data-i18n="services.chat.title">ບໍລິການຕອບຄຳຖາມ</h3>
+                <h3 class="text-xl text-white mb-2 lao" data-i18n="services.chat.title">ບໍລິການຕອບຄຳຖາມ</h3>
                 <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="services.chat.desc">Chatbot AI ທີ່ເຂົ້າໃຈພາສາລາວ. ຕອບ 24/7 ແລະ ເຊື່ອມຕໍ່ Facebook, WhatsApp, Telegram ແລະ ເວັບໄຊທ໌.</p>
-                <div class="flex flex-wrap gap-2 mt-3">
+                <div class="flex flex-wrap gap-2 mt-4">
                   <span class="tag">Facebook</span>
                   <span class="tag">WhatsApp</span>
                   <span class="tag">Telegram</span>
@@ -496,23 +599,21 @@
             </div>
           </div>
 
-          <!-- Consulting -->
-          <div class="card-glow p-7 reveal reveal-delay-2 relative overflow-hidden">
+          <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-2">
             <div class="flex items-start gap-5">
-              <div class="service-icon flex-shrink-0" style="background:rgba(249,115,22,0.15)">🤖</div>
+              <div class="service-icon flex-shrink-0 !mb-0" style="background:rgba(249,115,22,0.15)">🤖</div>
               <div>
-                <h3 class="text-xl font-bold mb-2 lao" data-i18n="services.consult.title">AI Consulting</h3>
+                <h3 class="text-xl text-white mb-2 lao" data-i18n="services.consult.title">AI Consulting</h3>
                 <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="services.consult.desc">ໃຫ້ຄຳປຶກສາ AI ເພື່ອປະຕິຮູບທຸລະກິດ. ວິເຄາະ, ອອກແບບ ແລະ ຈັດຕັ້ງລະບົບ AI ສຳລັບອົງກອນຂອງທ່ານ.</p>
               </div>
             </div>
           </div>
 
-          <!-- LLM -->
-          <div class="card-glow p-7 reveal reveal-delay-3 relative overflow-hidden">
+          <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-3">
             <div class="flex items-start gap-5">
-              <div class="service-icon flex-shrink-0" style="background:rgba(6,182,212,0.15)">⚙️</div>
+              <div class="service-icon flex-shrink-0 !mb-0" style="background:rgba(6,182,212,0.15)">⚙️</div>
               <div>
-                <h3 class="text-xl font-bold mb-2 lao" data-i18n="services.llm.title">LLM Developing</h3>
+                <h3 class="text-xl text-white mb-2 lao" data-i18n="services.llm.title">LLM Developing</h3>
                 <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="services.llm.desc">ພັດທະນາ Large Language Models ສຳລັບພາສາລາວ. ສ້າງໂມເດລ AI ຕາມຄວາມຕ້ອງການສະເພາະ.</p>
               </div>
             </div>
@@ -522,71 +623,77 @@
     </div>
   </section>
 
-
-  
-
-
   <!-- Products -->
-  <section id="products" class="py-28 px-6 relative overflow-hidden">
-    <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#5BCB25,transparent);top:0;left:-200px;"></div>
+  <section id="products" class="py-28 md:py-36 px-6 relative overflow-hidden">
+    <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#8b5cf6,transparent);top:0;left:-200px;"></div>
     <div class="max-w-7xl mx-auto relative">
-      <div class="text-center mb-16">
-        <div class="badge mb-5 mx-auto lao reveal" data-i18n="prod.badge">ຜະລິດຕະພັນ</div>
-        <h2 class="text-4xl md:text-5xl font-black mb-4 g-text reveal lao" data-i18n="prod.title">ຜະລິດຕະພັນຂອງພວກເຮົາ</h2>
-        <p class="text-white/50 max-w-xl mx-auto reveal lao" data-i18n="prod.sub">ແອັບພລິເຄຊັນ AI ທີ່ພ້ອມນຳໃຊ້ຈິງ</p>
+      <div class="flex items-end justify-between gap-6 mb-14 reveal">
+        <h2 class="display text-4xl md:text-6xl text-white lao" data-i18n="prod.title">ຜະລິດຕະພັນ<em class="g-text">ຂອງພວກເຮົາ</em></h2>
+        <span class="eyebrow hidden md:inline-block pb-2 lao" data-i18n="prod.badge">ຜະລິດຕະພັນ</span>
       </div>
+      <div class="rule mb-12 reveal"></div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- SlimFit -->
-        <div class="card-glow p-8 reveal relative overflow-hidden cursor-pointer" onclick="window.open('https://slimfit.laopadit.com/', '_blank')">
-          <div class="absolute top-0 right-0 w-48 h-48 opacity-10" style="background:radial-gradient(circle,#5BCB25,transparent)"></div>
-          <div class="relative">
-            <img src="img/slimfit-logo.svg" alt="SlimFit" class="h-14 mb-5">
+        <div class="liquid-glass rounded-3xl p-8 reveal cursor-pointer" onclick="window.open('https://slimfit.laopadit.com/', '_blank')">
+          <div class="absolute top-0 right-0 w-48 h-48 opacity-5" style="background:radial-gradient(circle,#8b5cf6,transparent)"></div>
+          <div class="relative flex flex-col h-full">
+            <div class="flex items-start justify-between mb-6">
+              <img src="img/slimfit-logo.svg" alt="SlimFit" class="h-12">
+              <span class="liquid-glass icon-btn rounded-full p-2.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </span>
+            </div>
             <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="prod.slimfit.desc">ແອັບສຸຂະພາບ AI: ນັບແຄລໍຣີ່ດ້ວຍການສະແກນອາຫານ, ບັນທຶກການອອກກຳລັງກາຍ ແລະ ແຜນໂພຊະນາການສ່ວນຕົວ ເພື່ອຫຼຸດໄຂມັນ ແລະ ສ້າງກ້າມເນື້ອ.</p>
-            <div class="flex flex-wrap gap-3">
+            <div class="flex flex-wrap gap-3 mb-7">
               <span class="feature-pill lao" data-i18n="prod.slimfit.t1"><span class="feature-pill-dot"></span>ສະແກນອາຫານດ້ວຍ AI</span>
               <span class="feature-pill lao" data-i18n="prod.slimfit.t2"><span class="feature-pill-dot"></span>ບັນທຶກການອອກກຳລັງກາຍ</span>
               <span class="feature-pill lao" data-i18n="prod.slimfit.t3"><span class="feature-pill-dot"></span>ແຜນສ່ວນຕົວ</span>
             </div>
-            <a href="https://slimfit.laopadit.com/" target="_blank" class="btn-primary lao mt-6 inline-flex" data-i18n="prod.slimfit.btn">ເປີດ SlimFit &rarr;</a>
+            <a href="https://slimfit.laopadit.com/" target="_blank" class="btn-primary lao mt-auto w-fit" data-i18n="prod.slimfit.btn">ເປີດ SlimFit &rarr;</a>
           </div>
         </div>
 
-        <!-- rPPG Scan - Medical Hackathon -->
-        <div class="card-glow p-8 reveal reveal-delay-1 relative overflow-hidden cursor-pointer" onclick="window.open('https://rppg-scan.laopadit.com/', '_blank')">
-          <div class="absolute top-0 right-0 w-48 h-48 opacity-10" style="background:radial-gradient(circle,#06b6d4,transparent)"></div>
-          <div class="relative">
-            <div class="tag mb-4 lao" data-i18n="prod.rppg.tag">🏆 Medical Hackathon</div>
-            <div class="service-icon mb-4" style="background:rgba(6,182,212,0.15)">❤️</div>
-            <h3 class="text-2xl font-black mb-3 g-text lao" data-i18n="prod.rppg.title">rPPG Vital Signs Scan</h3>
-            <p class="text-white/55 leading-relaxed mb-6 lao" data-i18n="prod.rppg.desc">ວັດອັດຕາການເຕັ້ນຫົວໃຈ ແລະ ອັດຕາການຫາຍໃຈຜ່ານກ້ອງມືຖື ໂດຍບໍ່ຕ້ອງແຕະຕ້ອງຮ່າງກາຍ ດ້ວຍໂມເດລ MTTS-CAN.</p>
+        <!-- rPPG Scan -->
+        <div class="liquid-glass rounded-3xl p-8 reveal reveal-delay-1 cursor-pointer" onclick="window.open('https://rppg-scan.laopadit.com/', '_blank')">
+          <div class="absolute top-0 right-0 w-48 h-48 opacity-5" style="background:radial-gradient(circle,#06b6d4,transparent)"></div>
+          <div class="relative flex flex-col h-full">
+            <div class="flex items-start justify-between mb-5">
+              <div class="service-icon !mb-0" style="background:rgba(6,182,212,0.15)">❤️</div>
+              <span class="liquid-glass icon-btn rounded-full p-2.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </span>
+            </div>
+            <div class="tag mb-3 lao w-fit" data-i18n="prod.rppg.tag">🏆 Medical Hackathon</div>
+            <h3 class="display text-3xl mb-3 g-text lao" data-i18n="prod.rppg.title">rPPG Vital Signs Scan</h3>
+            <p class="text-white/55 leading-relaxed mb-7 lao" data-i18n="prod.rppg.desc">ວັດອັດຕາການເຕັ້ນຫົວໃຈ ແລະ ອັດຕາການຫາຍໃຈຜ່ານກ້ອງມືຖື ໂດຍບໍ່ຕ້ອງແຕະຕ້ອງຮ່າງກາຍ ດ້ວຍໂມເດລ MTTS-CAN.</p>
 
-            <p class="text-xs uppercase tracking-widest text-white/40 mb-3 lao" data-i18n="prod.flow.title">ຂັ້ນຕອນການວັດ (~30 FPS)</p>
-            <div class="flex flex-col gap-2 mb-6">
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
-                <span class="text-base font-black" style="color:#06b6d4">1</span>
+            <div class="eyebrow mb-4 lao" data-i18n="prod.flow.title">ຂັ້ນຕອນການວັດ (~30 FPS)</div>
+            <div class="flex flex-col gap-2 mb-7">
+              <div class="flex items-center gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="display text-lg" style="color:#06b6d4">1</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s1">ກວດຈັບໜ້າ ແລະ ຈັດຮຽງດ້ວຍ AAM</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
-                <span class="text-base font-black" style="color:#06b6d4">2</span>
+              <div class="flex items-center gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="display text-lg" style="color:#06b6d4">2</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s2">ດຶງສັນຍານ RGB ຈາກຜິວໜັງ (POS)</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
-                <span class="text-base font-black" style="color:#06b6d4">3</span>
+              <div class="flex items-center gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="display text-lg" style="color:#06b6d4">3</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s3">ລົບສັນຍານລົບກວນ ແລະ ການເຄື່ອນໄຫວ</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
-                <span class="text-base font-black" style="color:#06b6d4">4</span>
+              <div class="flex items-center gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="display text-lg" style="color:#06b6d4">4</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s4">ກັ່ນຕອງຄວາມຖີ່ແບບປັບຕົວ</span>
               </div>
-              <div class="flex items-center gap-4 glass rounded-xl px-4 py-2.5">
-                <span class="text-base font-black" style="color:#06b6d4">5</span>
+              <div class="flex items-center gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="display text-lg" style="color:#06b6d4">5</span>
                 <span class="text-sm text-white/60 lao" data-i18n="prod.flow.s5">ຄຳນວນ BPM ແລະ HRV ຈາກ IBI</span>
               </div>
             </div>
 
-            <p class="text-xs text-white/35 leading-relaxed mb-5 lao" data-i18n="prod.rppg.note">⚠ ຕົວຢ່າງເພື່ອການຄົ້ນຄວ້າ — ບໍ່ແມ່ນອຸປະກອນທາງການແພດ ແລະ ຫ້າມນຳໃຊ້ເພື່ອການວິນິດໄສ.</p>
-            <a href="https://rppg-scan.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="prod.rppg.btn">ທົດລອງສະແກນ &rarr;</a>
+            <p class="text-xs text-white/35 leading-relaxed mb-6 lao" data-i18n="prod.rppg.note">⚠ ຕົວຢ່າງເພື່ອການຄົ້ນຄວ້າ — ບໍ່ແມ່ນອຸປະກອນທາງການແພດ ແລະ ຫ້າມນຳໃຊ້ເພື່ອການວິນິດໄສ.</p>
+            <a href="https://rppg-scan.laopadit.com/" target="_blank" class="btn-primary lao mt-auto w-fit" data-i18n="prod.rppg.btn">ທົດລອງສະແກນ &rarr;</a>
           </div>
         </div>
       </div>
@@ -594,61 +701,61 @@
   </section>
 
   <!-- Use Cases -->
-  <section id="usecases" class="py-28 px-6 relative overflow-hidden">
+  <section id="usecases" class="py-28 md:py-36 px-6 relative overflow-hidden">
     <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#ec4899,transparent);top:50%;right:-200px;transform:translateY(-50%);"></div>
     <div class="max-w-7xl mx-auto relative">
-      <div class="text-center mb-16">
-        <div class="badge mb-5 mx-auto lao reveal" data-i18n="use.badge">ການນຳໃຊ້</div>
-        <h2 class="text-4xl md:text-5xl font-black mb-4 reveal g-text lao" data-i18n="use.title">ຕົວຢ່າງການນຳໃຊ້</h2>
-        <p class="text-white/50 max-w-xl mx-auto reveal lao" data-i18n="use.sub">LaoPadit ໃຊ້ໄດ້ໃນຫຼາຍດ້ານ</p>
+      <div class="flex items-end justify-between gap-6 mb-14 reveal">
+        <h2 class="display text-4xl md:text-6xl text-white lao" data-i18n="use.title">ຕົວຢ່າງ<em class="g-text">ການນຳໃຊ້</em></h2>
+        <span class="eyebrow hidden md:inline-block pb-2 lao" data-i18n="use.badge">ການນຳໃຊ້</span>
       </div>
+      <div class="rule mb-12 reveal"></div>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card-glow p-7 reveal">
-          <div class="text-4xl mb-4">🏢</div>
-          <h3 class="font-bold text-lg mb-3 lao" data-i18n="use.biz.t">ທຸລະກິດ</h3>
+        <div class="liquid-glass rounded-3xl p-7 reveal">
+          <div class="text-4xl mb-5">🏢</div>
+          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.biz.t">ທຸລະກິດ</h3>
           <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.biz.d">ອັດຕະໂນມັດເອກະສານ, ອີເມລ ແລະ ການນັດໝາຍ. ເພີ່ມປະສິດທິພາບ SME ລາວ ດ້ວຍ AI.</p>
         </div>
-        <div class="card-glow p-7 reveal reveal-delay-1">
-          <div class="text-4xl mb-4">📖</div>
-          <h3 class="font-bold text-lg mb-3 lao" data-i18n="use.edu.t">ການສຶກສາ</h3>
+        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-1">
+          <div class="text-4xl mb-5">📖</div>
+          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.edu.t">ການສຶກສາ</h3>
           <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.edu.d">ຊ່ວຍນັກສຶກສາຈັດການວຽກ, ກຽມລາຍງານ ແລະ ຄົ້ນຄວ້າຢ່າງມີປະສິດທິພາບ.</p>
         </div>
-        <div class="card-glow p-7 reveal reveal-delay-2">
-          <div class="text-4xl mb-4">👨‍💻</div>
-          <h3 class="font-bold text-lg mb-3 lao" data-i18n="use.free.t">Freelancer</h3>
+        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-2">
+          <div class="text-4xl mb-5">👨‍💻</div>
+          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.free.t">Freelancer</h3>
           <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.free.d">ເຊື່ອມຕໍ່ຜູ້ຊ່ຽວຊານ AI ກັບເຈົ້າຂອງໂຄງການ. ຄຸ້ມຄອງງານ ແລະ ພັດທະນາທັກສະ.</p>
         </div>
-        <div class="card-glow p-7 reveal reveal-delay-1">
-          <div class="text-4xl mb-4">🌾</div>
-          <h3 class="font-bold text-lg mb-3 lao" data-i18n="use.agri.t">ກະສິກຳ</h3>
+        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-1">
+          <div class="text-4xl mb-5">🌾</div>
+          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.agri.t">ກະສິກຳ</h3>
           <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.agri.d">ຈັດການຂໍ້ມູນການຜະລິດ, ຄາດຄະເນຜົນຜະລິດ ແລະ ວາງແຜນການປູກ-ເກັບກ່ຽວ.</p>
         </div>
-        <div class="card-glow p-7 reveal reveal-delay-2">
-          <div class="text-4xl mb-4">🏥</div>
-          <h3 class="font-bold text-lg mb-3 lao" data-i18n="use.health.t">ສາທາລະນະສຸກ</h3>
+        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-2">
+          <div class="text-4xl mb-5">🏥</div>
+          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.health.t">ສາທາລະນະສຸກ</h3>
           <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.health.d">ຊ່ວຍໂຮງໝໍ ແລະ ສະຖານີ ຄຸ້ມຄອງຂໍ້ມູນຄົນເຈັບ, ນັດໝາຍ ແລະ ບັນທຶກທາງການແພດ.</p>
         </div>
-        <div class="card-glow p-7 reveal reveal-delay-3">
-          <div class="text-4xl mb-4">🔧</div>
-          <h3 class="font-bold text-lg mb-3 lao" data-i18n="use.data.t">ການຈັດການຂໍ້ມູນ</h3>
+        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-3">
+          <div class="text-4xl mb-5">🔧</div>
+          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.data.t">ການຈັດການຂໍ້ມູນ</h3>
           <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.data.d">ອອກແບບລະບົບຂໍ້ມູນທີ່ສອດຄ່ອງກັບວັດທະນະທຳລາວ. ຄົ້ນຫາ ແລະ ຈັດເກັບຂໍ້ມູນງ່າຍ.</p>
         </div>
       </div>
     </div>
   </section>
 
- 
   <!-- CTA -->
-  <section id="contact" class="py-28 px-6 relative overflow-hidden">
+  <section id="contact" class="py-28 md:py-36 px-6 relative overflow-hidden">
     <div class="mesh-bg" style="width:800px;height:400px;background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(139,92,246,0.15));top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;"></div>
     <div class="max-w-3xl mx-auto text-center relative">
-      <div class="card-glow p-12 md:p-16 reveal" style="background:rgba(255,255,255,0.03)">
-        <div class="badge mb-6 mx-auto lao reveal" data-i18n="cta.badge">ເລີ່ມຕົ້ນ</div>
-        <h2 class="text-4xl md:text-5xl font-black mb-4 lao reveal" data-i18n="cta.title">ພ້ອມທີ່ຈະໃຊ້ <span class="g-text">AI</span> ແລ້ວບໍ?</h2>
-        <p class="text-white/50 mb-10 lao reveal" data-i18n="cta.sub">ເລີ່ມໃຊ້ LaoPadit ຟຣີ ແລະ ສຳຜັດຄວາມແຕກຕ່າງ ທີ່ AI ທຳ ຢ່າງທ່ານ</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+      <div class="liquid-glass rounded-[2rem] p-12 md:p-16 reveal">
+        <div class="eyebrow mb-6 lao" data-i18n="cta.badge">ເລີ່ມຕົ້ນ</div>
+        <h2 class="display text-4xl md:text-6xl text-white mb-6 lao" data-i18n="cta.title">ພ້ອມທີ່ຈະໃຊ້ <em class="g-text">AI</em> ແລ້ວບໍ?</h2>
+        <p class="text-white/50 mb-10 lao leading-relaxed" data-i18n="cta.sub">ເລີ່ມໃຊ້ LaoPadit ຟຣີ ແລະ ສຳຜັດຄວາມແຕກຕ່າງ ທີ່ AI ທຳ ຢ່າງທ່ານ</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://super-ocr.laopadit.com/" target="_blank" class="btn-primary lao" data-i18n="cta.btn1">ທົດລອງ OCR ຟຣີ &rarr;</a>
-          <a href="mailto:info@laopadit.com" class="btn-outline lao" data-i18n="cta.btn2">ຕິດຕໍ່ພວກເຮົາ</a>
+          <a href="mailto:info@laopadit.com" class="liquid-glass btn-glass lao" data-i18n="cta.btn2">ຕິດຕໍ່ພວກເຮົາ</a>
         </div>
       </div>
     </div>
@@ -658,27 +765,26 @@
   <footer class="py-16 px-6 border-t" style="border-color:rgba(255,255,255,0.06)">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-        <!-- Brand -->
         <div>
           <div class="flex items-center gap-3 mb-4">
             <img src="img/logo.JPG" alt="Logo" class="w-9 h-9 rounded-full">
-            <span class="text-lg font-bold g-text">LaoPadit</span>
+            <span class="text-xl text-white display">Lao<em class="g-text">Padit</em></span>
           </div>
           <p class="text-white/40 text-sm leading-relaxed lao" data-i18n="footer.desc">ບໍລິການ AI ສຳລັບຄົນລາວ. ຊ່ວຍໃຫ້ທ່ານ ເຮັດວຽກດ້ວຍ AI ໄດ້ງ່າຍ.</p>
         </div>
-        <!-- Links -->
         <div>
-          <h4 class="font-semibold mb-4 text-white/70 text-sm lao" data-i18n="footer.links">ລິ້ງທີ່ໃຊ້ໄດ້</h4>
-          <div class="flex flex-col gap-2">
+          <h4 class="eyebrow mb-5 lao" data-i18n="footer.links">ລິ້ງທີ່ໃຊ້ໄດ້</h4>
+          <div class="flex flex-col gap-2.5">
             <a href="#about" class="text-white/40 text-sm hover:text-white transition lao" data-i18n="footer.l1">ກ່ຽວກັບ LaoPadit</a>
             <a href="#services" class="text-white/40 text-sm hover:text-white transition lao" data-i18n="footer.l2">ບໍລິການ</a>
-            <a href="https://super-ocr.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition lao">LaoPadit OCR</a>
+            <a href="https://super-ocr.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition">LaoPadit OCR</a>
+            <a href="https://slimfit.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition">SlimFit</a>
+            <a href="https://rppg-scan.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition">rPPG Scan</a>
           </div>
         </div>
-        <!-- Contact -->
         <div>
-          <h4 class="font-semibold mb-4 text-white/70 text-sm lao" data-i18n="footer.contact">ຕິດຕໍ່</h4>
-          <div class="flex flex-col gap-2">
+          <h4 class="eyebrow mb-5 lao" data-i18n="footer.contact">ຕິດຕໍ່</h4>
+          <div class="flex flex-col gap-2.5">
             <a href="mailto:info@laopadit.com" class="text-white/40 text-sm hover:text-white transition flex items-center gap-2">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               info@laopadit.com
@@ -690,7 +796,8 @@
           </div>
         </div>
       </div>
-      <div class="border-t pt-8 flex flex-col sm:flex-row justify-between items-center gap-3" style="border-color:rgba(255,255,255,0.06)">
+      <div class="rule mb-8"></div>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
         <p class="text-white/30 text-sm">© 2025 LaoPadit.com · ທຸກສິດສະຫງວນ</p>
         <div class="flex items-center gap-2">
           <span class="text-white/20 text-xs">Powered by</span>
@@ -706,7 +813,7 @@
       en: {
         "nav.products": "Products",
         "prod.badge": "Products",
-        "prod.title": "Our Products",
+        "prod.title": "Our <em class=\"g-text\">products</em>",
         "prod.sub": "Production-ready AI applications",
         "prod.slimfit.desc": "AI health app: scan meals to count calories, log workouts, and follow personalized nutrition plans to lose fat and build muscle.",
         "prod.slimfit.t1": "AI Meal Scan",
@@ -743,7 +850,7 @@
         "stat.3": "AI Services",
         "stat.4": "Built for Laos",
         "about.badge": "About Us",
-        "about.title": "AI that truly understands\nthe Lao Language",
+        "about.title": "AI that truly understands<br>the <em class=\"g-text\">Lao language</em>",
         "about.p1": "LaoPadit (ລາວປະດິດ) is Laos's pioneering AI automation service, purpose-built to empower the Lao people in the digital age. Our AI is uniquely engineered to understand, process, and generate content in the Lao language with remarkable accuracy.",
         "about.p2": "Our mission: empower entrepreneurs, students, and freelancers to harness advanced AI — boosting efficiency, saving time, and simplifying complex tasks.",
         "about.f1": "Lao Language Mastery",
@@ -757,7 +864,7 @@
         "about.card3.t": "For Freelancers",
         "about.card3.d": "Connect AI-skilled professionals with project owners. Manage work and develop AI skills efficiently.",
         "services.badge": "Services",
-        "services.title": "Our Services",
+        "services.title": "Our <em class=\"g-text\">services</em>",
         "services.sub": "Advanced AI technology for every need",
         "services.featured": "★ Featured",
         "services.ocr.title": "LaoPadit OCR",
@@ -781,7 +888,7 @@
         "how.s3.t": "Get Results Instantly",
         "how.s3.d": "AI processes and returns high-accuracy results in seconds",
         "use.badge": "Use Cases",
-        "use.title": "Use Cases",
+        "use.title": "Use <em class=\"g-text\">cases</em>",
         "use.sub": "LaoPadit works across many sectors",
         "use.biz.t": "Business",
         "use.biz.d": "Automate documents, email & scheduling. Boost SME efficiency in Laos with AI.",
@@ -807,7 +914,7 @@
         "test.3.n": "Mrs. Xaiya V.",
         "test.3.r": "School Director",
         "cta.badge": "Get Started",
-        "cta.title": "Ready to use AI?",
+        "cta.title": "Ready to use <em class=\"g-text\">AI</em>?",
         "cta.sub": "Start with LaoPadit for free and experience the AI difference today",
         "cta.btn1": "Try OCR Free →",
         "cta.btn2": "Contact Us",
@@ -820,7 +927,7 @@
       lo: {
         "nav.products": "ຜະລິດຕະພັນ",
         "prod.badge": "ຜະລິດຕະພັນ",
-        "prod.title": "ຜະລິດຕະພັນຂອງພວກເຮົາ",
+        "prod.title": "ຜະລິດຕະພັນ<em class=\"g-text\">ຂອງພວກເຮົາ</em>",
         "prod.sub": "ແອັບພລິເຄຊັນ AI ທີ່ພ້ອມນຳໃຊ້ຈິງ",
         "prod.slimfit.desc": "ແອັບສຸຂະພາບ AI: ນັບແຄລໍຣີ່ດ້ວຍການສະແກນອາຫານ, ບັນທຶກການອອກກຳລັງກາຍ ແລະ ແຜນໂພຊະນາການສ່ວນຕົວ ເພື່ອຫຼຸດໄຂມັນ ແລະ ສ້າງກ້າມເນື້ອ.",
         "prod.slimfit.t1": "ສະແກນອາຫານດ້ວຍ AI",
@@ -857,7 +964,7 @@
         "stat.3": "ບໍລິການ AI",
         "stat.4": "ສ້າງໂດຍຄົນລາວ",
         "about.badge": "ກ່ຽວກັບພວກເຮົາ",
-        "about.title": "AI ທີ່ເຂົ້າໃຈ ພາສາລາວ ຢ່າງແທ້ຈິງ",
+        "about.title": "AI ທີ່ເຂົ້າໃຈ<br><em class=\"g-text\">ພາສາລາວ</em> ຢ່າງແທ້ຈິງ",
         "about.p1": "LaoPadit (ລາວປະດິດ) ແມ່ນຜູ້ບຸກເບີກດ້ານ AI ທີ່ສຸມໃສ່ການເສີມສ້າງຄວາມເຂັ້ມແຂງໃຫ້ປະຊາຊົນລາວ ໃນຍຸກດິຈິຕອລ. ລະບົບ AI ຂອງພວກເຮົາໄດ້ຖືກອອກແບບມາເປັນພິເສດ ເພື່ອເຂົ້າໃຈ ແລະ ປະມວນຜົນພາສາລາວຢ່າງເລິກເຊິ່ງ.",
         "about.p2": "ພາລະກິດຂອງພວກເຮົາ: ຊ່ວຍຜູ້ປະກອບການ, ນັກຮຽນ ແລະ ພະນັກງານອິດສະຫຼະ ນໍາໃຊ້ AI ເພື່ອເພີ່ມປະສິດທິພາບ, ປະຢັດເວລາ ແລະ ເຮັດໃຫ້ວຽກທີ່ສັບສົນງ່າຍຂຶ້ນ.",
         "about.f1": "ຄວາມຊໍານານພາສາລາວ",
@@ -871,7 +978,7 @@
         "about.card3.t": "ສຳລັບ Freelancer",
         "about.card3.d": "ເຊື່ອມຕໍ່ຜູ້ມີທັກສະ AI ກັບເຈົ້າຂອງໂຄງການ. ຄຸ້ມຄອງງານ ແລະ ພັດທະນາທັກສະ AI ຢ່າງມີປະສິດທິພາບ",
         "services.badge": "ບໍລິການ",
-        "services.title": "ບໍລິການຂອງພວກເຮົາ",
+        "services.title": "ບໍລິການ<em class=\"g-text\">ຂອງພວກເຮົາ</em>",
         "services.sub": "ເທັກໂນໂລຊີ AI ຂັ້ນສູງ ສຳລັບທຸກຄວາມຕ້ອງການ",
         "services.featured": "★ ຈຸດເດັ່ນ",
         "services.ocr.title": "LaoPadit OCR",
@@ -895,7 +1002,7 @@
         "how.s3.t": "ຮັບຜົນທັນທີ",
         "how.s3.d": "AI ປະມວນຜົນ ແລະ ສົ່ງຜົນຄືນທັນທີ ດ້ວຍຄວາມຖືກຕ້ອງສູງ",
         "use.badge": "ການນຳໃຊ້",
-        "use.title": "ຕົວຢ່າງການນຳໃຊ້",
+        "use.title": "ຕົວຢ່າງ<em class=\"g-text\">ການນຳໃຊ້</em>",
         "use.sub": "LaoPadit ໃຊ້ໄດ້ໃນຫຼາຍດ້ານ",
         "use.biz.t": "ທຸລະກິດ",
         "use.biz.d": "ອັດຕະໂນມັດເອກະສານ, ອີເມລ ແລະ ການນັດໝາຍ. ເພີ່ມປະສິດທິພາບ SME ລາວ ດ້ວຍ AI.",
@@ -921,7 +1028,7 @@
         "test.3.n": "ນາງ ໄຊຍະ ວ.",
         "test.3.r": "ຜູ້ອຳນວຍການໂຮງຮຽນ",
         "cta.badge": "ເລີ່ມຕົ້ນ",
-        "cta.title": "ພ້ອມທີ່ຈະໃຊ້ AI ແລ້ວບໍ?",
+        "cta.title": "ພ້ອມທີ່ຈະໃຊ້ <em class=\"g-text\">AI</em> ແລ້ວບໍ?",
         "cta.sub": "ເລີ່ມໃຊ້ LaoPadit ຟຣີ ແລະ ສຳຜັດຄວາມແຕກຕ່າງ ທີ່ AI ສ້າງໃຫ້ທ່ານ",
         "cta.btn1": "ທົດລອງ OCR ຟຣີ →",
         "cta.btn2": "ຕິດຕໍ່ພວກເຮົາ",
