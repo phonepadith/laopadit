@@ -445,6 +445,7 @@
         <a href="#about" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.about">ກ່ຽວກັບ</a>
         <a href="#services" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.services">ບໍລິການ</a>
         <a href="#products" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
+        <a href="#research" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.research">ຄົ້ນຄວ້າ</a>
         <a href="#usecases" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.usecases">ການນຳໃຊ້</a>
         <a href="#contact" class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-1.5 group">
           <span class="lao" data-i18n="nav.contact">ຕິດຕໍ່</span>
@@ -466,6 +467,7 @@
         <a href="#about" class="nav-link lao text-base" data-i18n="nav.about">ກ່ຽວກັບ</a>
         <a href="#services" class="nav-link lao text-base" data-i18n="nav.services">ບໍລິການ</a>
         <a href="#products" class="nav-link lao text-base" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
+        <a href="#research" class="nav-link lao text-base" data-i18n="nav.research">ຄົ້ນຄວ້າ</a>
         <a href="#usecases" class="nav-link lao text-base" data-i18n="nav.usecases">ການນຳໃຊ້</a>
         <a href="#contact" class="nav-link lao text-base" data-i18n="nav.contact">ຕິດຕໍ່</a>
         <a href="https://super-ocr.laopadit.com/" target="_blank" class="btn-primary lao w-fit text-sm" data-i18n="nav.cta">ທົດລອງຟຣີ</a>
@@ -730,6 +732,60 @@
     </div>
   </section>
 
+  <!-- Research Models -->
+  <section id="research" class="py-28 md:py-36 px-6 relative overflow-hidden">
+    <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#06b6d4,transparent);top:0;right:-200px;"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="flex items-end justify-between gap-6 mb-14 reveal">
+        <h2 class="display text-4xl md:text-6xl text-white lao" data-i18n="research.title">ໂມເດລ<em class="g-text">ຄົ້ນຄວ້າ</em></h2>
+        <span class="eyebrow hidden md:inline-block pb-2 lao" data-i18n="research.badge">ໂມເດລຄົ້ນຄວ້າ</span>
+      </div>
+      <div class="rule mb-12 reveal"></div>
+
+      <div class="liquid-glass rounded-3xl p-8 md:p-10 reveal cursor-pointer" onclick="window.open('https://huggingface.co/malikskii/whisper-large-v3-lao-Unsloth', '_blank')">
+        <div class="absolute top-0 right-0 w-64 h-64 opacity-5" style="background:radial-gradient(circle,#06b6d4,transparent)"></div>
+        <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <div>
+            <div class="flex items-start justify-between mb-5">
+              <div class="service-icon !mb-0" style="background:rgba(6,182,212,0.15)">🎙️</div>
+              <span class="liquid-glass icon-btn rounded-full p-2.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </span>
+            </div>
+            <div class="tag mb-3 lao w-fit" data-i18n="research.whisper.tag">Speech-to-Text</div>
+            <h3 class="display text-2xl md:text-3xl mb-3 g-text">Whisper Large v3 · Lao</h3>
+            <p class="text-white/55 leading-relaxed lao" data-i18n="research.whisper.desc">ໂມເດລ Whisper Large v3 ທີ່ປັບແຕ່ງສຳລັບການແປງສຽງເປັນຂໍ້ຄວາມພາສາລາວ. ດາວໂຫຼດໄດ້ຟຣີຈາກ Hugging Face.</p>
+          </div>
+
+          <div>
+            <div class="eyebrow mb-4 lao" data-i18n="research.specs">ລາຍລະອຽດ</div>
+            <div class="flex flex-col gap-2 mb-6">
+              <div class="flex items-center justify-between gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="text-sm text-white/45 lao" data-i18n="research.spec.task">ໜ້າວຽກ</span>
+                <span class="text-sm text-white/80">Automatic Speech Recognition</span>
+              </div>
+              <div class="flex items-center justify-between gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="text-sm text-white/45 lao" data-i18n="research.spec.base">ໂມເດລພື້ນຖານ</span>
+                <span class="text-sm text-white/80">Whisper Large v3</span>
+              </div>
+              <div class="flex items-center justify-between gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="text-sm text-white/45 lao" data-i18n="research.spec.size">ຂະໜາດ</span>
+                <span class="text-sm text-white/80">3.24 GB · safetensors</span>
+              </div>
+              <div class="flex items-center justify-between gap-4 liquid-glass rounded-2xl px-4 py-2.5">
+                <span class="text-sm text-white/45 lao" data-i18n="research.spec.lib">ໄລບຣາຣີ</span>
+                <span class="text-sm text-white/80">🤗 transformers</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-white/35 leading-relaxed mb-6 lao" data-i18n="research.whisper.note">⚠ ໂມເດລເພື່ອການຄົ້ນຄວ້າ — ຍັງບໍ່ໄດ້ລະບຸໃບອະນຸຍາດ (license) ໃນ model card. ກວດສອບກ່ອນນຳໃຊ້ທາງທຸລະກິດ.</p>
+            <a href="https://huggingface.co/malikskii/whisper-large-v3-lao-Unsloth" target="_blank" rel="noopener" class="btn-primary lao" data-i18n="research.whisper.btn">ດາວໂຫຼດຟຣີຈາກ Hugging Face &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Use Cases -->
   <section id="usecases" class="py-28 md:py-36 px-6 relative overflow-hidden">
     <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#ec4899,transparent);top:50%;right:-200px;transform:translateY(-50%);"></div>
@@ -810,6 +866,7 @@
             <a href="https://super-ocr.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition">LaoPadit OCR</a>
             <a href="https://slimfit.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition">SlimFit</a>
             <a href="https://rppg-scan.laopadit.com/" target="_blank" class="text-white/40 text-sm hover:text-white transition">rPPG Scan</a>
+            <a href="https://huggingface.co/malikskii/whisper-large-v3-lao-Unsloth" target="_blank" rel="noopener" class="text-white/40 text-sm hover:text-white transition">Whisper v3 Lao</a>
           </div>
         </div>
         <div>
@@ -841,6 +898,18 @@
     /* ===================== Translations ===================== */
     const T = {
       en: {
+        "nav.research": "Research",
+        "research.badge": "Research Models",
+        "research.title": "Research <em class=\"g-text\">models</em>",
+        "research.specs": "Details",
+        "research.spec.task": "Task",
+        "research.spec.base": "Base model",
+        "research.spec.size": "Size",
+        "research.spec.lib": "Library",
+        "research.whisper.tag": "Speech-to-Text",
+        "research.whisper.desc": "Whisper Large v3 fine-tuned for Lao speech-to-text. Free to download from Hugging Face.",
+        "research.whisper.note": "⚠ Research model — no license is declared on the model card. Check before any commercial use.",
+        "research.whisper.btn": "Free download on Hugging Face &rarr;",
         "hero.line1": "Automate with",
         "hero.kicker": "AI automation built for Lao people",
         "hero.stat": "99% Lao OCR accuracy · Built in Laos",
@@ -959,6 +1028,18 @@
         "footer.contact": "Contact"
       },
       lo: {
+        "nav.research": "ຄົ້ນຄວ້າ",
+        "research.badge": "ໂມເດລຄົ້ນຄວ້າ",
+        "research.title": "ໂມເດລ<em class=\"g-text\">ຄົ້ນຄວ້າ</em>",
+        "research.specs": "ລາຍລະອຽດ",
+        "research.spec.task": "ໜ້າວຽກ",
+        "research.spec.base": "ໂມເດລພື້ນຖານ",
+        "research.spec.size": "ຂະໜາດ",
+        "research.spec.lib": "ໄລບຣາຣີ",
+        "research.whisper.tag": "Speech-to-Text",
+        "research.whisper.desc": "ໂມເດລ Whisper Large v3 ທີ່ປັບແຕ່ງສຳລັບການແປງສຽງເປັນຂໍ້ຄວາມພາສາລາວ. ດາວໂຫຼດໄດ້ຟຣີຈາກ Hugging Face.",
+        "research.whisper.note": "⚠ ໂມເດລເພື່ອການຄົ້ນຄວ້າ — ຍັງບໍ່ໄດ້ລະບຸໃບອະນຸຍາດ (license) ໃນ model card. ກວດສອບກ່ອນນຳໃຊ້ທາງທຸລະກິດ.",
+        "research.whisper.btn": "ດາວໂຫຼດຟຣີຈາກ Hugging Face &rarr;",
         "hero.line1": "ອັດຕະໂນມັດດ້ວຍ",
         "hero.kicker": "AI ອັດຕະໂນມັດ ສຳລັບຄົນລາວ",
         "hero.stat": "ຄວາມຖືກຕ້ອງ OCR ພາສາລາວ 99% · ສ້າງໂດຍຄົນລາວ",
