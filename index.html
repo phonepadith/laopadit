@@ -426,6 +426,14 @@
     /* 0.82 keeps white text at >=4.5:1 (WCAG AA) even over the video's
        brightest pixels; at 0.75 the hotspots dropped to 3.55:1. */
     .bgvideo-scrim { position: absolute; inset: 0; background: rgba(5,5,8,0.82); }
+
+    /* Tech logos: official marks rendered white so the row reads as one set.
+       Unsloth keeps its colours — its only public mark is a colour sticker. */
+    .tech-logo { filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s ease; }
+    .tech-logo-color { opacity: 0.85; transition: opacity 0.3s ease; }
+    .tech-tile { transition: transform 0.3s ease; }
+    .tech-tile:hover { transform: translateY(-4px); }
+    .tech-tile:hover .tech-logo, .tech-tile:hover .tech-logo-color { opacity: 1; }
   </style>
 </head>
 <body>
@@ -463,7 +471,7 @@
         <a href="#products" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
         <a href="#research" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.research">ຄົ້ນຄວ້າ</a>
         <a href="#events" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.events">ກິດຈະກຳ</a>
-        <a href="#usecases" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.usecases">ການນຳໃຊ້</a>
+        <a href="#tech" class="text-sm text-white/80 hover:text-white transition-colors lao" data-i18n="nav.tech">ເທັກໂນໂລຊີ</a>
         <a href="#contact" class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-1.5 group">
           <span class="lao" data-i18n="nav.contact">ຕິດຕໍ່</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-0.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -486,7 +494,7 @@
         <a href="#products" class="nav-link lao text-base" data-i18n="nav.products">ຜະລິດຕະພັນ</a>
         <a href="#research" class="nav-link lao text-base" data-i18n="nav.research">ຄົ້ນຄວ້າ</a>
         <a href="#events" class="nav-link lao text-base" data-i18n="nav.events">ກິດຈະກຳ</a>
-        <a href="#usecases" class="nav-link lao text-base" data-i18n="nav.usecases">ການນຳໃຊ້</a>
+        <a href="#tech" class="nav-link lao text-base" data-i18n="nav.tech">ເທັກໂນໂລຊີ</a>
         <a href="#contact" class="nav-link lao text-base" data-i18n="nav.contact">ຕິດຕໍ່</a>
         <a href="https://super-ocr.laopadit.com/" target="_blank" class="btn-primary lao w-fit text-sm" data-i18n="nav.cta">ທົດລອງຟຣີ</a>
       </div>
@@ -916,51 +924,56 @@
     </div>
   </section>
 
-  <!-- Use Cases -->
-  <section id="usecases" class="py-28 md:py-36 px-6 relative overflow-hidden">
-    <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#ec4899,transparent);top:50%;right:-200px;transform:translateY(-50%);"></div>
-    <div class="max-w-7xl mx-auto relative">
+  <!-- Technology -->
+  <section id="tech" class="py-28 md:py-36 px-6 relative overflow-hidden">
+    <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#06b6d4,transparent);top:50%;right:-200px;transform:translateY(-50%);"></div>
+    <div class="max-w-5xl mx-auto relative">
       <div class="flex items-end justify-between gap-6 mb-14 reveal">
-        <h2 class="display text-4xl md:text-6xl text-white lao" data-i18n="use.title">ຕົວຢ່າງ<em class="g-text">ການນຳໃຊ້</em></h2>
-        <span class="eyebrow hidden md:inline-block pb-2 lao" data-i18n="use.badge">ການນຳໃຊ້</span>
+        <h2 class="display text-4xl md:text-6xl text-white lao" data-i18n="tech.title">ເທັກ<em class="g-text">ໂນໂລຊີ</em></h2>
+        <span class="eyebrow hidden md:inline-block pb-2 lao" data-i18n="tech.badge">ເທັກໂນໂລຊີ</span>
       </div>
       <div class="rule mb-12 reveal"></div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="liquid-glass rounded-3xl p-7 reveal">
-          <div class="text-4xl mb-5">🏢</div>
-          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.biz.t">ທຸລະກິດ</h3>
-          <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.biz.d">ອັດຕະໂນມັດເອກະສານ, ອີເມລ ແລະ ການນັດໝາຍ. ເພີ່ມປະສິດທິພາບ SME ລາວ ດ້ວຍ AI.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/googlecolab.svg" alt="Google Colab" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">Google Colab</span>
         </div>
-        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-1">
-          <div class="text-4xl mb-5">📖</div>
-          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.edu.t">ການສຶກສາ</h3>
-          <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.edu.d">ຊ່ວຍນັກສຶກສາຈັດການວຽກ, ກຽມລາຍງານ ແລະ ຄົ້ນຄວ້າຢ່າງມີປະສິດທິພາບ.</p>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/python.svg" alt="Python" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">Python</span>
         </div>
-        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-2">
-          <div class="text-4xl mb-5">👨‍💻</div>
-          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.free.t">Freelancer</h3>
-          <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.free.d">ເຊື່ອມຕໍ່ຜູ້ຊ່ຽວຊານ AI ກັບເຈົ້າຂອງໂຄງການ. ຄຸ້ມຄອງງານ ແລະ ພັດທະນາທັກສະ.</p>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/huggingface.svg" alt="Hugging Face" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">Hugging Face</span>
         </div>
-        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-1">
-          <div class="text-4xl mb-5">🌾</div>
-          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.agri.t">ກະສິກຳ</h3>
-          <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.agri.d">ຈັດການຂໍ້ມູນການຜະລິດ, ຄາດຄະເນຜົນຜະລິດ ແລະ ວາງແຜນການປູກ-ເກັບກ່ຽວ.</p>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/unsloth.png" alt="Unsloth AI" loading="lazy" class="tech-logo-color h-9 w-9 rounded-full">
+          <span class="text-sm text-white/60">Unsloth AI</span>
         </div>
-        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-2">
-          <div class="text-4xl mb-5">🏥</div>
-          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.health.t">ສາທາລະນະສຸກ</h3>
-          <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.health.d">ຊ່ວຍໂຮງໝໍ ແລະ ສະຖານີ ຄຸ້ມຄອງຂໍ້ມູນຄົນເຈັບ, ນັດໝາຍ ແລະ ບັນທຶກທາງການແພດ.</p>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/lmstudio.svg" alt="LM Studio" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">LM Studio</span>
         </div>
-        <div class="liquid-glass rounded-3xl p-7 reveal reveal-delay-3">
-          <div class="text-4xl mb-5">🔧</div>
-          <h3 class="text-lg text-white mb-3 lao" data-i18n="use.data.t">ການຈັດການຂໍ້ມູນ</h3>
-          <p class="text-white/50 text-sm leading-relaxed lao" data-i18n="use.data.d">ອອກແບບລະບົບຂໍ້ມູນທີ່ສອດຄ່ອງກັບວັດທະນະທຳລາວ. ຄົ້ນຫາ ແລະ ຈັດເກັບຂໍ້ມູນງ່າຍ.</p>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/ollama.svg" alt="Ollama" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">Ollama</span>
+        </div>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/vllm.svg" alt="vLLM" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">vLLM</span>
+        </div>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/docker.svg" alt="Docker" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">Docker</span>
+        </div>
+        <div class="liquid-glass tech-tile rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 reveal">
+          <img src="img/tech/kubernetes.svg" alt="Kubernetes" loading="lazy" class="tech-logo h-9 w-9">
+          <span class="text-sm text-white/60">Kubernetes</span>
         </div>
       </div>
     </div>
   </section>
-
   <!-- CTA -->
   <section id="contact" class="py-28 md:py-36 px-6 relative overflow-hidden">
     <div class="mesh-bg" style="width:800px;height:400px;background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(139,92,246,0.15));top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;"></div>
@@ -1028,6 +1041,9 @@
     /* ===================== Translations ===================== */
     const T = {
       en: {
+        "nav.tech": "Technology",
+        "tech.badge": "Technology",
+        "tech.title": "Tech<em class=\"g-text\">nology</em>",
         "ev.medihack.date": "2 AUG – 22 SEP 2026",
         "ev.medihack.place": "The Makerbox Lao, Vientiane",
         "ev.medihack.desc": "Laos’s first medical device design makeathon — eight weekends of design thinking, prototyping, and clinical grounding with 15+ mentors from the National University of Laos, Khon Kaen University, MIT, Institute of Science Tokyo, Cambridge, and Mahosot Hospital. LaoPadit’s rPPG vital signs scan came out of this programme.",
@@ -1088,7 +1104,6 @@
         "prod.flow.s5": "BPM & HRV from inter-beat intervals",
         "nav.about": "About",
         "nav.services": "Services",
-        "nav.usecases": "Use Cases",
         "nav.contact": "Contact",
         "nav.cta": "Try Free",
         "hero.badge": "🇱🇦  AI for Lao People",
@@ -1142,21 +1157,6 @@
         "how.s2.d": "Upload your file or connect your system via our API",
         "how.s3.t": "Get Results Instantly",
         "how.s3.d": "AI processes and returns high-accuracy results in seconds",
-        "use.badge": "Use Cases",
-        "use.title": "Use <em class=\"g-text\">cases</em>",
-        "use.sub": "LaoPadit works across many sectors",
-        "use.biz.t": "Business",
-        "use.biz.d": "Automate documents, email & scheduling. Boost SME efficiency in Laos with AI.",
-        "use.edu.t": "Education",
-        "use.edu.d": "Help students manage assignments, prepare reports, and research efficiently.",
-        "use.free.t": "Freelancers",
-        "use.free.d": "Connect AI-skilled professionals with project owners. Manage work & develop skills.",
-        "use.agri.t": "Agriculture",
-        "use.agri.d": "Manage production data, forecast yields, and plan optimal planting schedules.",
-        "use.health.t": "Healthcare",
-        "use.health.d": "Help hospitals manage patient data, appointments, and medical records.",
-        "use.data.t": "Data Management",
-        "use.data.d": "Design record systems aligned with Lao culture. Store and search data easily with AI.",
         "test.badge": "Testimonials",
         "test.title": "What Our Clients Say",
         "test.1.q": "\"LaoPadit OCR helped me digitize old Lao documents quickly and accurately. Saved me so much time!\"",
@@ -1180,6 +1180,9 @@
         "footer.contact": "Contact"
       },
       lo: {
+        "nav.tech": "ເທັກໂນໂລຊີ",
+        "tech.badge": "ເທັກໂນໂລຊີ",
+        "tech.title": "ເທັກ<em class=\"g-text\">ໂນໂລຊີ</em>",
         "ev.medihack.date": "2 ສິງຫາ – 22 ກັນຍາ 2026",
         "ev.medihack.place": "The Makerbox Lao, ວຽງຈັນ",
         "ev.medihack.desc": "ງານອອກແບບອຸປະກອນການແພດຄັ້ງທຳອິດໃນລາວ — 8 ອາທິດ (ສະເພາະວັນເສົາ ແລະ ວັນອາທິດ) ດ້ວຍ Design Thinking, ການສ້າງຕົ້ນແບບ ແລະ ຄວາມຮູ້ທາງຄລີນິກ ຈາກຜູ້ຊ່ຽວຊານຫຼາຍກວ່າ 15 ທ່ານ ຈາກ ມະຫາວິທະຍາໄລແຫ່ງຊາດລາວ, ມະຫາວິທະຍາໄລຂອນແກ່ນ, MIT, Institute of Science Tokyo, Cambridge ແລະ ໂຮງໝໍມະໂຫສົດ. ໂຄງການ rPPG ຂອງ LaoPadit ເກີດຂຶ້ນຈາກງານນີ້.",
@@ -1240,7 +1243,6 @@
         "prod.flow.s5": "ຄຳນວນ BPM ແລະ HRV ຈາກ IBI",
         "nav.about": "ກ່ຽວກັບ",
         "nav.services": "ບໍລິການ",
-        "nav.usecases": "ການນຳໃຊ້",
         "nav.contact": "ຕິດຕໍ່",
         "nav.cta": "ທົດລອງຟຣີ",
         "hero.badge": "🇱🇦 &nbsp;AI ເພື່ອຄົນລາວ",
@@ -1294,21 +1296,6 @@
         "how.s2.d": "ອັບໂຫລດໄຟລ໌ ຫຼື ເຊື່ອມຕໍ່ລະບົບຂອງທ່ານກັບ API ຂອງພວກເຮົາ",
         "how.s3.t": "ຮັບຜົນທັນທີ",
         "how.s3.d": "AI ປະມວນຜົນ ແລະ ສົ່ງຜົນຄືນທັນທີ ດ້ວຍຄວາມຖືກຕ້ອງສູງ",
-        "use.badge": "ການນຳໃຊ້",
-        "use.title": "ຕົວຢ່າງ<em class=\"g-text\">ການນຳໃຊ້</em>",
-        "use.sub": "LaoPadit ໃຊ້ໄດ້ໃນຫຼາຍດ້ານ",
-        "use.biz.t": "ທຸລະກິດ",
-        "use.biz.d": "ອັດຕະໂນມັດເອກະສານ, ອີເມລ ແລະ ການນັດໝາຍ. ເພີ່ມປະສິດທິພາບ SME ລາວ ດ້ວຍ AI.",
-        "use.edu.t": "ການສຶກສາ",
-        "use.edu.d": "ຊ່ວຍນັກສຶກສາຈັດການວຽກ, ກຽມລາຍງານ ແລະ ຄົ້ນຄວ້າຢ່າງມີປະສິດທິພາບ.",
-        "use.free.t": "Freelancer",
-        "use.free.d": "ເຊື່ອມຕໍ່ຜູ້ຊ່ຽວຊານ AI ກັບເຈົ້າຂອງໂຄງການ. ຄຸ້ມຄອງງານ ແລະ ພັດທະນາທັກສະ.",
-        "use.agri.t": "ກະສິກຳ",
-        "use.agri.d": "ຈັດການຂໍ້ມູນການຜະລິດ, ຄາດຄະເນຜົນຜະລິດ ແລະ ວາງແຜນການປູກ-ເກັບກ່ຽວ.",
-        "use.health.t": "ສາທາລະນະສຸກ",
-        "use.health.d": "ຊ່ວຍໂຮງໝໍ ແລະ ສະຖານີ ຄຸ້ມຄອງຂໍ້ມູນຄົນເຈັບ, ນັດໝາຍ ແລະ ບັນທຶກທາງການແພດ.",
-        "use.data.t": "ການຈັດການຂໍ້ມູນ",
-        "use.data.d": "ອອກແບບລະບົບຂໍ້ມູນທີ່ສອດຄ່ອງກັບວັດທະນະທຳລາວ. ຄົ້ນຫາ ແລະ ຈັດເກັບຂໍ້ມູນງ່າຍ.",
         "test.badge": "ຄຳຕິຊົມ",
         "test.title": "ລູກຄ້າເວົ້າວ່າ",
         "test.1.q": '"LaoPadit OCR ຊ່ວຍຂ້ອຍປ່ຽນເອກະສານລາວເກົ່າເປັນດິຈິຕອລໄດ້ໄວ ແລະ ຖືກຕ້ອງຫຼາຍ. ປະຢັດເວລາໄດ້ຫຼາຍ!"',
