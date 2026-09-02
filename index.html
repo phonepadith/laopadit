@@ -585,6 +585,17 @@
     </div>
   </section>
 
+  <!-- Scroll-scrubbed video band. Hides itself if the file is missing. -->
+  <section id="scrub" class="relative hidden" style="height:280vh">
+    <div class="sticky top-0 h-screen w-full overflow-hidden">
+      <video id="scrub-video" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto" disablepictureinpicture>
+        <source src="img/scroll-abstract.mp4" type="video/mp4">
+      </video>
+      <!-- blend the band into the page background top and bottom -->
+      <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom, var(--bg) 0%, transparent 22%, transparent 78%, var(--bg) 100%)"></div>
+    </div>
+  </section>
+
   <!-- Services -->
   <section id="services" class="py-28 md:py-36 px-6 relative overflow-hidden">
     <div class="max-w-7xl mx-auto relative">
@@ -1403,9 +1414,50 @@
     });
 
     /* ===================== Boot ===================== */
+    /* Scroll-scrubbed video: scroll position drives currentTime, so scrolling
+       up plays it backwards. Needs a self-hosted file — the YouTube iframe
+       player cannot seek frame-accurately or play in reverse, and seeking
+       needs a host that answers HTTP Range requests. */
+    function initScrollScrub() {
+      const sec = document.getElementById("scrub");
+      const vid = document.getElementById("scrub-video");
+      if (!sec || !vid) return;
+
+      // No file, or one the browser cannot play, means no band —
+      // rather than 280vh of empty scrolling.
+      vid.addEventListener("error", () => sec.remove(), true);
+
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      vid.addEventListener("loadedmetadata", () => {
+        if (!vid.duration || !isFinite(vid.duration)) { sec.remove(); return; }
+        sec.classList.remove("hidden");
+        vid.pause();
+
+        if (reduced) {                       // one still frame, no scroll-linked motion
+          sec.style.height = "100vh";
+          vid.currentTime = vid.duration / 2;
+          return;
+        }
+
+        update();
+        addEventListener("scroll", update, { passive: true });
+        addEventListener("resize", update, { passive: true });
+      });
+
+      function update() {
+        const span = sec.offsetHeight - innerHeight;
+        if (span <= 0 || vid.readyState < 1) return;
+        let p = -sec.getBoundingClientRect().top / span;
+        p = p < 0 ? 0 : p > 1 ? 1 : p;
+        try { vid.currentTime = p * vid.duration; } catch (e) {}
+      }
+    }
+
     function boot() {
       createParticles();
       initHero();
+      initScrollScrub();
       setupReveal();
       applyTranslations();
     }
