@@ -418,6 +418,14 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
+
+    /* Page-wide background video. z-index 0 keeps it above the body background
+       but below #particles and every (positioned) section that follows it. */
+    #bgvideo { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    #bgvideo video { position: absolute; inset: 0; }
+    /* 0.82 keeps white text at >=4.5:1 (WCAG AA) even over the video's
+       brightest pixels; at 0.75 the hotspots dropped to 3.55:1. */
+    .bgvideo-scrim { position: absolute; inset: 0; background: rgba(5,5,8,0.82); }
   </style>
 </head>
 <body>
@@ -426,6 +434,14 @@
   <div id="loading">
     <img src="img/logo.JPG" alt="LaoPadit" style="width:72px;height:72px;border-radius:50%;opacity:0.9;">
     <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+  </div>
+
+  <!-- Page background video, scrubbed by page scroll. Hides itself if the file is missing. -->
+  <div id="bgvideo" class="hidden">
+    <video id="scrub-video" class="w-full h-full object-cover" muted playsinline preload="auto" disablepictureinpicture>
+      <source src="img/scroll-abstract.mp4" type="video/mp4">
+    </video>
+    <div class="bgvideo-scrim"></div>
   </div>
 
   <!-- Particles -->
@@ -479,15 +495,11 @@
 
   <!-- Hero -->
   <section class="relative min-h-screen flex flex-col overflow-hidden">
-    <!-- Fallback gradient (visible until img/hero.mp4 exists) -->
+    <!-- Brand colour over the page background video -->
     <div class="mesh-bg" style="width:700px;height:700px;background:radial-gradient(circle,#8b5cf6,transparent);top:-120px;right:-200px;"></div>
     <div class="mesh-bg" style="width:600px;height:600px;background:radial-gradient(circle,#ec4899,transparent);bottom:-100px;left:-180px;"></div>
     <div class="mesh-bg" style="width:450px;height:450px;background:radial-gradient(circle,#06b6d4,transparent);top:45%;left:55%;opacity:0.1;"></div>
 
-    <!-- Background video -->
-    <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline preload="auto">
-      <source src="img/hero.mp4" type="video/mp4">
-    </video>
     <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 45%, rgba(5,5,8,0.95) 100%)"></div>
 
     <div class="relative z-10 flex-1 flex flex-col max-w-7xl w-full mx-auto px-6 pt-32 pb-16">
@@ -582,17 +594,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Scroll-scrubbed video band. Hides itself if the file is missing. -->
-  <section id="scrub" class="relative hidden" style="height:280vh">
-    <div class="sticky top-0 h-screen w-full overflow-hidden">
-      <video id="scrub-video" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto" disablepictureinpicture>
-        <source src="img/scroll-abstract.mp4" type="video/mp4">
-      </video>
-      <!-- blend the band into the page background top and bottom -->
-      <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to bottom, var(--bg) 0%, transparent 22%, transparent 78%, var(--bg) 100%)"></div>
     </div>
   </section>
 
@@ -1414,31 +1415,27 @@
     });
 
     /* ===================== Boot ===================== */
-    /* Scroll-scrubbed video: scroll position drives currentTime, so scrolling
-       up plays it backwards. Needs a self-hosted file — the YouTube iframe
-       player cannot seek frame-accurately or play in reverse, and seeking
-       needs a host that answers HTTP Range requests. */
+    /* Page background video: page scroll drives currentTime, so scrolling down
+       runs it forward and scrolling up runs it backwards. Needs a self-hosted
+       file on a host that answers HTTP Range requests — without Range the
+       browser cannot seek and the video freezes on its first frame. */
     function initScrollScrub() {
-      const sec = document.getElementById("scrub");
+      const layer = document.getElementById("bgvideo");
       const vid = document.getElementById("scrub-video");
-      if (!sec || !vid) return;
+      if (!layer || !vid) return;
 
-      // No file, or one the browser cannot play, means no band —
-      // rather than 280vh of empty scrolling.
-      vid.addEventListener("error", () => sec.remove(), true);
+      // No file, or one the browser cannot play: drop the layer and keep the
+      // plain background rather than leaving an empty black plate.
+      vid.addEventListener("error", () => layer.remove(), true);
 
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       vid.addEventListener("loadedmetadata", () => {
-        if (!vid.duration || !isFinite(vid.duration)) { sec.remove(); return; }
-        sec.classList.remove("hidden");
+        if (!vid.duration || !isFinite(vid.duration)) { layer.remove(); return; }
+        layer.classList.remove("hidden");
         vid.pause();
 
-        if (reduced) {                       // one still frame, no scroll-linked motion
-          sec.style.height = "100vh";
-          vid.currentTime = vid.duration / 2;
-          return;
-        }
+        if (reduced) { vid.currentTime = vid.duration / 2; return; }  // one still frame
 
         update();
         addEventListener("scroll", update, { passive: true });
@@ -1446,9 +1443,9 @@
       });
 
       function update() {
-        const span = sec.offsetHeight - innerHeight;
+        const span = document.documentElement.scrollHeight - innerHeight;
         if (span <= 0 || vid.readyState < 1) return;
-        let p = -sec.getBoundingClientRect().top / span;
+        let p = window.scrollY / span;
         p = p < 0 ? 0 : p > 1 ? 1 : p;
         try { vid.currentTime = p * vid.duration; } catch (e) {}
       }
