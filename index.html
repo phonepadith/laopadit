@@ -704,7 +704,13 @@
               <span class="feature-pill lao" data-i18n="prod.slimfit.t2"><span class="feature-pill-dot"></span>ບັນທຶກການອອກກຳລັງກາຍ</span>
               <span class="feature-pill lao" data-i18n="prod.slimfit.t3"><span class="feature-pill-dot"></span>ແຜນສ່ວນຕົວ</span>
             </div>
-            <a href="https://slimfit.laopadit.com/" target="_blank" class="btn-primary lao mt-auto w-fit" data-i18n="prod.slimfit.btn">ເປີດ SlimFit &rarr;</a>
+            <div class="mt-auto flex flex-wrap items-center gap-5">
+              <a href="https://slimfit.laopadit.com/" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="btn-primary lao w-fit" data-i18n="prod.slimfit.btn">ເປີດ SlimFit &rarr;</a>
+              <a href="https://apps.apple.com/la/app/id6793449702" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="flex items-center gap-3">
+                <img src="img/slimfit-qr.png" alt="QR code to download SlimFit on the App Store" width="128" height="128" loading="lazy" class="w-32 h-32 rounded-xl flex-shrink-0">
+                <span class="text-xs text-white/45 leading-snug lao" data-i18n="prod.slimfit.qr">ສະແກນເພື່ອດາວໂຫຼດ<br>ໃນ App Store</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1092,6 +1098,7 @@
     /* ===================== Translations ===================== */
     const T = {
       en: {
+        "prod.slimfit.qr": "Scan to download<br>on the App Store",
         "footer.legal": "Legal",
         "footer.privacy": "Privacy Policy",
         "ev.toyota.date": "26 SEP 2026",
@@ -1238,6 +1245,7 @@
         "footer.contact": "Contact"
       },
       lo: {
+        "prod.slimfit.qr": "ສະແກນເພື່ອດາວໂຫຼດ<br>ໃນ App Store",
         "footer.legal": "ນະໂຍບາຍ",
         "footer.privacy": "ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ",
         "ev.toyota.date": "26 ກັນຍາ 2026",
