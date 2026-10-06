@@ -829,6 +829,43 @@
         <!-- rail -->
         <div class="absolute left-0 top-2 bottom-2 w-px" style="background:linear-gradient(to bottom, rgba(236,72,153,0.5), rgba(139,92,246,0.35), transparent)"></div>
 
+        <!-- Digital Hackathon 2026 -->
+        <div class="relative reveal">
+          <span class="absolute -left-8 md:-left-12 top-2 w-3 h-3 rounded-full -translate-x-1/2" style="background:transparent;border:2px solid var(--purple);box-shadow:0 0 12px rgba(139,92,246,0.5)"></span>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+            <span class="eyebrow" data-i18n="ev.dh.date">10 ຕຸລາ – 6 ພະຈິກ 2026</span>
+            <span class="text-white/25">·</span>
+            <span class="text-sm text-white/50 lao" data-i18n="ev.dh.place">The American Center ວຽງຈັນ</span>
+            <span class="tag inline-flex items-center gap-1.5 lao"><span class="w-1.5 h-1.5 rounded-full border border-current"></span><span data-i18n="ev.status.upcoming">ກຳລັງຈະມາເຖິງ</span></span>
+          </div>
+          <h3 class="display text-2xl md:text-4xl mb-4 g-text">Digital Hackathon 2026</h3>
+          <p class="text-white/55 leading-relaxed max-w-3xl mb-5 lao" data-i18n="ev.dh.desc">ຈັດໂດຍ Youth Confidence ແລະ ສະໜັບສະໜູນໂດຍ ສະຫະລັດອາເມລິກາ. ມີ 3 ຊ່ວງກິດຈະກຳ — ຄິດໄອເດຍ ແລະ Design Thinking (10 ຕຸລາ), AI Prototyping ແລະ Storytelling (17 ຕຸລາ), ຮອບເຄິ່ງຕັດສິນ (24 ຕຸລາ) — ກ່ອນຮອບຕັດສິນສຸດທ້າຍ ວັນທີ 6 ພະຈິກ ທີ່ The American Center ວຽງຈັນ. ມູນຄ່າລາງວັນລວມຫຼາຍກວ່າ 10,000,000 ກີບ.</p>
+          <div class="flex flex-wrap gap-2 mb-7">
+            <span class="tag">Youth Confidence</span>
+            <span class="tag">ລາງວັນລວມ 10,000,000 ₭</span>
+            <span class="tag">AI Prototyping</span>
+          </div>
+        </div>
+
+        <!-- bitqik Web3 Hackathon 2026 -->
+        <div class="relative reveal">
+          <span class="absolute -left-8 md:-left-12 top-2 w-3 h-3 rounded-full -translate-x-1/2" style="background:transparent;border:2px solid var(--purple);box-shadow:0 0 12px rgba(139,92,246,0.5)"></span>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+            <span class="eyebrow" data-i18n="ev.web3.date">10–22 ຕຸລາ 2026</span>
+            <span class="text-white/25">·</span>
+            <span class="text-sm text-white/50 lao" data-i18n="ev.web3.place">bitqik · ວຽງຈັນ</span>
+            <span class="tag inline-flex items-center gap-1.5 lao"><span class="w-1.5 h-1.5 rounded-full border border-current"></span><span data-i18n="ev.status.upcoming">ກຳລັງຈະມາເຖິງ</span></span>
+          </div>
+          <h3 class="display text-2xl md:text-4xl mb-4 g-text">bitqik Web3 Hackathon</h3>
+          <p class="text-white/55 leading-relaxed max-w-3xl mb-5 lao" data-i18n="ev.web3.desc">ສ່ວນໜຶ່ງຂອງງານ Lao Digital Week 2026 ຈັດໂດຍ ewent.la ແລະ LAOITDEV ຮ່ວມກັບ LIDA, ສະໜັບສະໜູນໂດຍ bitqik ແລະ Tether. ສະໝັກເປັນທີມ ທີມລະ 3 ຄົນ: Workshop ວັນທີ 10 ຕຸລາ, Hackathon ວັນທີ 17–18 ຕຸລາ ແລະ ນຳສະເໜີຮອບສຸດທ້າຍ ວັນທີ 22 ຕຸລາ ໃນງານ Lao Digital Week. ຄັດເລືອກ 6 ທີມສຸດທ້າຍ ຊິງເງິນລາງວັນລວມ 1,000 USDT.</p>
+          <div class="flex flex-wrap gap-2 mb-7">
+            <span class="tag">Web3</span>
+            <span class="tag">Lao Digital Week 2026</span>
+            <span class="tag">1,000 USDT</span>
+          </div>
+          <a href="https://ewent.la/event/1E48E779/detail" target="_blank" rel="noopener" class="liquid-glass btn-glass lao" data-i18n="ev.web3.btn">ເບິ່ງລາຍລະອຽດງານ &rarr;</a>
+        </div>
+
         <!-- MediHack Makeathon 2026 -->
         <div class="relative reveal">
           <span class="absolute -left-8 md:-left-12 top-2 w-3 h-3 rounded-full -translate-x-1/2" style="background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 0 16px rgba(236,72,153,0.6)"></span>
@@ -1113,6 +1150,14 @@
     /* ===================== Translations ===================== */
     const T = {
       en: {
+        "ev.status.upcoming": "Upcoming",
+        "ev.dh.date": "10 OCT – 6 NOV 2026",
+        "ev.dh.place": "The American Center Vientiane",
+        "ev.dh.desc": "Organised by Youth Confidence and sponsored by the United States. Three build sessions — ideation and design thinking (10 Oct), AI prototyping and storytelling (17 Oct) and semi-final pitching (24 Oct) — lead to the final pitch on 6 November at The American Center Vientiane. Total prize value over 10,000,000 kip.",
+        "ev.web3.date": "10–22 OCT 2026",
+        "ev.web3.place": "bitqik · Vientiane",
+        "ev.web3.desc": "Part of Lao Digital Week 2026, organised by ewent.la and LAOITDEV with LIDA, sponsored by bitqik and Tether. Teams of three: a workshop on 10 October, the hackathon on 17–18 October, and the final presentation on 22 October at Lao Digital Week. Six teams reach the final, competing for a 1,000 USDT prize pool.",
+        "ev.web3.btn": "View the event &rarr;",
         "prod.slimfit.qr": "Scan to download<br>on the App Store",
         "footer.legal": "Legal",
         "footer.privacy": "Privacy Policy",
@@ -1260,6 +1305,14 @@
         "footer.contact": "Contact"
       },
       lo: {
+        "ev.status.upcoming": "ກຳລັງຈະມາເຖິງ",
+        "ev.dh.date": "10 ຕຸລາ – 6 ພະຈິກ 2026",
+        "ev.dh.place": "The American Center ວຽງຈັນ",
+        "ev.dh.desc": "ຈັດໂດຍ Youth Confidence ແລະ ສະໜັບສະໜູນໂດຍ ສະຫະລັດອາເມລິກາ. ມີ 3 ຊ່ວງກິດຈະກຳ — ຄິດໄອເດຍ ແລະ Design Thinking (10 ຕຸລາ), AI Prototyping ແລະ Storytelling (17 ຕຸລາ), ຮອບເຄິ່ງຕັດສິນ (24 ຕຸລາ) — ກ່ອນຮອບຕັດສິນສຸດທ້າຍ ວັນທີ 6 ພະຈິກ ທີ່ The American Center ວຽງຈັນ. ມູນຄ່າລາງວັນລວມຫຼາຍກວ່າ 10,000,000 ກີບ.",
+        "ev.web3.date": "10–22 ຕຸລາ 2026",
+        "ev.web3.place": "bitqik · ວຽງຈັນ",
+        "ev.web3.desc": "ສ່ວນໜຶ່ງຂອງງານ Lao Digital Week 2026 ຈັດໂດຍ ewent.la ແລະ LAOITDEV ຮ່ວມກັບ LIDA, ສະໜັບສະໜູນໂດຍ bitqik ແລະ Tether. ສະໝັກເປັນທີມ ທີມລະ 3 ຄົນ: Workshop ວັນທີ 10 ຕຸລາ, Hackathon ວັນທີ 17–18 ຕຸລາ ແລະ ນຳສະເໜີຮອບສຸດທ້າຍ ວັນທີ 22 ຕຸລາ ໃນງານ Lao Digital Week. ຄັດເລືອກ 6 ທີມສຸດທ້າຍ ຊິງເງິນລາງວັນລວມ 1,000 USDT.",
+        "ev.web3.btn": "ເບິ່ງລາຍລະອຽດງານ &rarr;",
         "prod.slimfit.qr": "ສະແກນເພື່ອດາວໂຫຼດ<br>ໃນ App Store",
         "footer.legal": "ນະໂຍບາຍ",
         "footer.privacy": "ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ",
